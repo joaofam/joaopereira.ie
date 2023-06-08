@@ -1,0 +1,31 @@
+/* .glass-card :global(.card-container) {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  margin: 1rem;
+} */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+
+.icon-switcher {
+  position: relative;
+}
+
+.fade-animation {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.icon-switcher:hover .fade-animation {
+  opacity: 1;
+}
+
+
