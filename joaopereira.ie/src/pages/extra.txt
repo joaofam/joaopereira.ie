@@ -1,0 +1,442 @@
+      <Grid templateColumns="1fr 1fr" gap={8} mt={4}>
+        <Box mr="auto">
+          <Container maxWidth={2000}>
+            <ThemeProvider theme={theme}>
+            <Text textAlign="center" fontSize="28px">
+              <Box display="inline-block" mr={4}>
+                {/* <FontAwesomeIcon size="sm" icon={faSchool} /> */}
+              </Box>
+              Life
+              <Box display="inline-block" ml={12} mr={2}>
+                {/* <FontAwesomeIcon size="sm" icon={faTools} /> */}
+              </Box>
+              Work
+            </Text>
+              <Timeline>
+
+              <TimelineItem>
+                  <TimelineOppositeContent
+                      sx={{ m: 'auto 0', marginBottom: "18px" }}
+                      align="right"
+                      variant="body2"
+                    >
+                    <Text>2021 - 2023</Text>
+                    <Text>1yr 9m</Text>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineDot sx={{backgroundColor: "black"}}>
+                      <Avatar alt="DCU" src="/assets/TheWell.jpg" />
+                    </TimelineDot>
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ py: '12px', px: 2, mb: "-20px" }}>
+                    <Text sx={{ fontWeight: "bold", fontSize: "16px" }}>
+                      Senior Bartender
+                    </Text>
+                    <Text>The Well</Text>
+                    <Card 
+                      sx={{ 
+                        backgroundColor: "rgba(255, 255, 255, 0.06)",
+                        backdropFilter: "blur(20px)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                        borderRadius: "10px",
+                        color: "white",
+                        width: "70%",
+                        paddingLeft: "8px"
+                      }}>
+                      <Linkk sx={{cursor: "pointer", paddingLeft: "5px"}} onClick={handleClick}>
+                      Description
+                      </Linkk>
+                    </Card>
+                    <Popover
+                      id={id}
+                      open={open}
+                      anchorEl={anchorEl}
+                      onClose={handleClose}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                      }}
+                      PaperProps={{
+                        sx: {
+                          width: '30%',
+                          backgroundColor: 'grey',
+                          backgroundColor: "rgba(255, 255, 255, 0.06)",
+                          backdropFilter: "blur(400px)",
+                          border: "1px solid rgba(255, 255, 255, 0.1)",
+                          boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                          borderRadius: "10px",
+                          color: `${listItem}`,
+                        },
+                      }}
+                    >
+                      <Text sx={{ p: 2 }}>Their eggs are such a delicacy that some say eating one will bring you happiness. These eggs fetch the highest prices on the market.Its body had begun to change so it could function on land. But it didn’t adapt in time and went extinct.It vibrates its wings to generate ultrasonic waves, causing its prey to faint. Then it buries the prey alive in the sand to preserve it.</Text>
+                    </Popover>
+                  </TimelineContent>
+                </TimelineItem>
+              
+                <TimelineItem>
+                  <TimelineOppositeContent
+                    sx={{ m: 'auto 0', marginBottom: "14px" }}
+                    variant="body2"
+                  >
+                    <Text sx={{ fontWeight: "bold", fontSize: "16px" }}>
+                      Completed University
+                    </Text>
+                    <Text>With a 1.1 grade</Text>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineConnector
+                      sx={{
+                        backgroundColor: "gray.200",
+                        height: "20px !important",
+                      }} 
+                    />
+                    <TimelineDot sx={{backgroundColor:"transparent"}}>
+                      <FontAwesomeIcon icon={faAward} style={{ color: listItem, fontSize: "30px"}} />
+                    </TimelineDot>
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ py: '12px', px: 2,  }}>
+                    <Text sx={{ marginTop: "40px" }}>
+                      2023
+                    </Text>
+                  </TimelineContent>
+                </TimelineItem>
+
+
+
+                <TimelineItem>
+                  <TimelineOppositeContent
+                      sx={{ m: 'auto 0', marginBottom: "18px" }}
+                      align="right"
+                      variant="body2"
+                    >
+                    <Text>2022 - 2022</Text>
+                    <Text>6m</Text>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineConnector
+                      sx={{
+                        backgroundColor: "gray.200",
+                        height: "40px",
+                      }} 
+                    />
+                    <TimelineDot sx={{backgroundColor: "white"}}>
+                      <Avatar alt="DCU" src="/assets/KLAS.jpeg" />
+                    </TimelineDot>
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ py: '12px', px: 2, mb: "-20px" }}>
+                    <Text sx={{ fontWeight: "bold", fontSize: "20px" }}>
+                      Software Developer Intern
+                    </Text>
+                    <Text>Klas Telecom</Text>
+                    <Card 
+                      sx={{ 
+                        backgroundColor: "rgba(255, 255, 255, 0.06)",
+                        backdropFilter: "blur(20px)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                        borderRadius: "10px",
+                        color: "white",
+                        width: "70%",
+                        paddingLeft: "8px"
+                      }}>
+                      <Linkk sx={{cursor: "pointer", paddingLeft: "5px"}} onClick={handleClick}>
+                      Description
+                      </Linkk>
+                    </Card>
+                    <Popover
+                      id={id}
+                      open={open}
+                      anchorEl={anchorEl}
+                      onClose={handleClose}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                      }}
+                      PaperProps={{
+                        sx: {
+                          width: '30%',
+                          backgroundColor: 'grey',
+                          backgroundColor: "rgba(255, 255, 255, 0.06)",
+                          backdropFilter: "blur(400px)",
+                          border: "1px solid rgba(255, 255, 255, 0.1)",
+                          boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                          borderRadius: "10px",
+                          color: `${listItem}`,
+                        },
+                      }}
+                    >
+                      <Text sx={{ pt: 2, pl: 2, fontWeight: "bold", textDecoration: "underline" }}>Period</Text>
+                      <Text sx={{ p: 2 }}>March 2022 - August 2022</Text>
+                      <Text sx={{ pt: 2, pl: 2, fontWeight: "bold", textDecoration: "underline"}}>Description</Text>
+                      <Text sx={{ p: 2 }}>
+                        During my time at Klas, I was a valued member of a 10-person <b>Agile</b> team that developed Blackrock, a <b>React</b>-based network configuration and monitoring app with a <b>Python</b> backend. As a key contributor to the project, I:
+                        <br /><br />
+                        <UnorderedList>
+                          <ListItem> <b>Designed</b> and <b>implemented</b> new features for the web application, improving its functionality and usability.</ListItem>
+                          <ListItem> Conducted rigorous <b>testing</b> and <b>debugging</b> to ensure high-quality code and user satisfaction. </ListItem>
+                          <ListItem> <b>Developed</b> numerous <b>API endpoints</b>, streamlining data exchange and integration with other systems. </ListItem>
+                          <ListItem> Maintained detailed <b>documentation</b> and created implementation guides for team members and users. </ListItem>
+                          <ListItem> Participated in <b>daily standups</b> and biweekly <b>retrospectives</b>, collaborating closely with colleagues to achieve project goals. </ListItem>
+                        </UnorderedList>
+                        <br />
+                        Overall, I am proud of my contributions to Blackrock and my ability to work effectively in a dynamic and collaborative environment.
+                        <br></br>
+                        <br></br>
+                        <i>Technologies used</i>: React, Python, YAML, Git, JIRA, Linux, Selenium, Swagger, Postman
+                      
+                      </Text>
+                    </Popover>
+                  </TimelineContent>
+                </TimelineItem>
+
+                <TimelineItem>
+                  <TimelineOppositeContent
+                      sx={{ m: 'auto 0', marginBottom: "18px" }}
+                      align="right"
+                      variant="body2"
+                    >
+                    <Text>2021 - 2021</Text>
+                    <Text>6m</Text>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineConnector
+                      sx={{
+                        backgroundColor: "gray.200",
+                        height: "40px",
+                      }} 
+                    />
+                    <TimelineDot sx={{backgroundColor: "black"}}>
+                      <Avatar alt="DCU" src="/assets/UB.jpg" />
+                    </TimelineDot>
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ py: '12px', px: 2, mt: "40px" }}>
+                    <Text sx={{ fontWeight: "bold", fontSize: "16px" }}>
+                      Bartender
+                    </Text>
+                    <Text>Urban Brewing</Text>
+                  </TimelineContent>
+                </TimelineItem>
+
+                <TimelineItem>
+                  <TimelineOppositeContent
+                      sx={{ m: 'auto 0', marginTop: "30px" }}
+                      align="right"
+                      variant="body2"
+                    >
+                    <Text sx={{ fontWeight: "bold", fontSize: "16px" }} component="span">
+                      Began University
+                    </Text>
+                    <Text>Dublin City University</Text>
+                    <Text>B.S. in <br></br>Computer Applications and Software Engineering</Text>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineConnector
+                      sx={{
+                        backgroundColor: "gray.200",
+                        height: "10px",
+                      }} 
+                    />
+                    <TimelineDot sx={{backgroundColor: "white"}} variant="outlined">
+                      <Avatar alt="DCU" src="/assets/DCU.jpg" />
+                    </TimelineDot>
+                    <TimelineConnector sx={{  }} />
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ py: '12px', px: 2, mt: "25px" }}>
+                    <Text>
+                      2019
+                    </Text>
+                  </TimelineContent>
+                </TimelineItem>
+
+                <TimelineItem>
+                  <TimelineOppositeContent
+                      sx={{ m: 'auto 0', marginTop: "34px" }}
+                      align="right"
+                      variant="body2"
+                    >
+                    <Text>2019 - 2019</Text>
+                    <Text>3m</Text>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineConnector
+                      sx={{
+                        backgroundColor: "gray.200",
+                        height: "10px",
+                      }} 
+                    />
+                    <TimelineDot sx={{backgroundColor: "black"}} variant="outlined">
+                      <Avatar alt="DCU" src="/assets/Academy.jpg" />
+                    </TimelineDot>
+                    <TimelineConnector sx={{  }} />
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ py: '12px', px: 2, mt: "10px" }}>
+                  <Text sx={{ fontWeight: "bold", fontSize: "16px" }} component="span">
+                      Bartender
+                    </Text>
+                    <Text>The Academy</Text>
+                  </TimelineContent>
+                </TimelineItem>
+
+                <TimelineItem>
+                  <TimelineOppositeContent
+                      sx={{ m: 'auto 0', marginTop: "20px" }}
+                      align="right"
+                      variant="body2"
+                    >
+                    <Text sx={{ fontWeight: "bold", fontSize: "16px" }}>
+                      Leaving Cert <FontAwesomeIcon icon={faCheckCircle} style={{ color: "green", fontSize: "20px"}} />
+                    </Text>
+                    <Text>Achieved 488 points</Text>
+                    <Text>Selskar College Wexford</Text>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineConnector
+                      sx={{
+                        backgroundColor: "gray.200",
+                        height: "10px",
+                      }} 
+                    />
+                     <TimelineDot sx={{backgroundColor: "white"}} variant="outlined">
+                      <Avatar alt="Selskar College" src="/assets/Selskar.jpg" />
+                    </TimelineDot>
+                    <TimelineConnector sx={{  }} />
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ py: '12px', px: 2, mt: "30px" }}>
+                    <Text>
+                      2019
+                    </Text>
+                  </TimelineContent>
+                </TimelineItem>
+
+                <TimelineItem>
+                  <TimelineOppositeContent
+                    sx={{ m: 'auto 0', marginTop: "60px" }}
+                    align="right"
+                    variant="body2"
+                  >
+                  <Text sx={{ fontWeight: "bold", fontSize: "16px" }}>
+                      Moved to Ireland
+                    </Text>
+                    <Text>to Wexford</Text>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineConnector
+                      sx={{
+                        backgroundColor: "gray.200",
+                        height: "40px",
+                      }} 
+                    />
+                    <TimelineDot sx={{backgroundColor: "transparent"}}>
+                      <Avatar alt="Ireland" src="/assets/Ireland.png"/>
+                    </TimelineDot>
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ py: '12px', px: 2, mt: '55px' }}>
+                    <Text>
+                      2007
+                    </Text>
+                  </TimelineContent>
+                </TimelineItem>
+
+                <TimelineItem>
+                  <TimelineOppositeContent
+                    sx={{ m: 'auto 0', marginTop: "52px" }}
+                    align="right"
+                    variant="body2"
+                  >
+                    <Text sx={{ fontWeight: "bold", fontSize: "16px" }}>
+                      Born
+                    </Text>
+                    <Text>in Portugal</Text>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineConnector sx={{
+                        backgroundColor: "gray.200",
+                        height: "30px",
+                      }}/>
+                    <TimelineDot sx={{backgroundColor: "transparent"}}>
+                      <Avatar alt="Portugal" src="/assets/Portugal.jpg" />
+                    </TimelineDot>
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ py: '12px', px: 2, mt: '47px' }}>
+                    <Text>
+                      2001
+                    </Text>
+                  </TimelineContent>
+                </TimelineItem>
+              </Timeline>
+          </ThemeProvider>
+        </Container>
+      </Box>
+      <Box mr={10} mt={10}>
+        <Stack  spacing={2} direction={"column"}>
+        <Container 
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.06)",
+            backdropFilter: "blur(20px)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+            borderRadius: "10px",
+            color: "white",
+            width: "100%",
+          }}>
+          <Text
+            sx={{
+              letterSpacing: "2px",
+              fontSize: "24px",
+              paddingTop: "20px",
+              paddingBottom: "10px",
+            }}
+        
+        >A LIL BIT ABOUT ME</Text>
+          <Text sx={{paddingBottom: "20px"}}>
+            My name is Joao (pronounced  Jew ow) and I am recent Computer 
+            Applications and Software Engineering graduate from DCU. 
+            I have a love for technology and computers and as well as 
+            plunging myself into countless activities to get the most 
+            out of life. I was born in Portugal however mostly raised in Ireland.
+            
+          </Text>
+        </Container>
+        <Container 
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.06)",
+            backdropFilter: "blur(20px)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+            borderRadius: "10px",
+            color: "white",
+            width: "100%",
+          }}>
+        <Text
+            sx={{
+              letterSpacing: "2px",
+              fontSize: "24px",
+              paddingTop: "20px",
+              paddingBottom: "10px",
+            }}
+        > WHAT I 
+          <FontAwesomeIcon size="1x" icon={faHeart} style={{ color: "#e01b24", paddingLeft: "20px"}} />
+        </Text>
+          <UnorderedList sx={{paddingBottom: "20px"}} color={`${listItem}`} >
+            <ListItem>Computers and Technology</ListItem>
+            <ListItem>
+              <Code>Coding</Code>
+            </ListItem>
+            <ListItem>Ubuntu/Linux  <FontAwesomeIcon size="1x" icon={faUbuntu} style={{ color: "#dd4814"}} /> </ListItem>
+            <ListItem>Servers</ListItem>
+            <ListItem>Photography (Film Photography incl. 35mm & 120mm)</ListItem>
+            <ListItem>Cycling (My cool fixie)</ListItem>
+            <ListItem>Fashion</ListItem>
+            <ListItem>Jazz, House and Old-School music</ListItem>
+            <ListItem>Hiking/Camping</ListItem>
+            <ListItem>Mixology</ListItem>
+            <ListItem>My Girlfriend</ListItem>
+          </UnorderedList>
+        </Container>
+        </Stack>
+      </Box>
+      </Grid>

@@ -1,16 +1,22 @@
 import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
+import '@fontsource/space-mono';
 
 const styles = {
   global: props => ({
     body: {
-      bg: mode('#f0e7db', '#080808')(props)
+      bg: mode('#ffffff', '#121212')(props)
     }
   })
 }
 
 const components = {
   Heading: {
+    baseStyle: props => ({
+      color: mode('#3d7aed', '#ff63c3')(props),
+      letterSpacing: '0.05em',
+    }),
+
     variants: {
       'section-title': {
         textDecoration: 'underline',
@@ -23,12 +29,50 @@ const components = {
       }
     }
   },
+
+  Text: {
+    baseStyle: props => ({
+      color: mode('black', 'white')(props),
+    }),
+  },
+
   Link: {
     baseStyle: props => ({
-      color: mode('#3d7aed', '#ff63c3')(props),
+      color: mode('#3d7aed', '#ffb0e0')(props),
       textUnderlineOffset: 3
     })
   },
+
+  Divider: {
+    baseStyle: props => ({
+      borderColor: mode('grey', '#45424b')(props),
+    })
+  },
+
+  UnorderedList: {
+    baseStyle: props => ({
+      color: mode('#3d7aed', '#ff63c3')(props),
+    })
+  },
+
+  FormLabel: {
+    baseStyle: props => ({
+      color: mode('grey', 'white')(props),
+    })
+  },
+
+  // Input : {
+  //   baseStyle: props => ({
+  //     color: mode('#3d7aed', '#ff63c3')(props),
+  //   })
+  // },
+
+  Textarea : {
+    baseStyle: props => ({
+      color: mode('black', 'white')(props),
+    })
+  },
+
   Card: {
     baseStyle: {
       bg: 'rgba(255, 255, 255, 0.15)',
@@ -41,7 +85,7 @@ const components = {
 
 const fonts = {
     body: "'Source Code Pro', sans-serif",
-    heading: "'Source Code Pro', sans-serif"
+    heading: "'Space Mono'",
 }
 
 
