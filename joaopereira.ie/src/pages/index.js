@@ -568,7 +568,7 @@ const Page = () => {
                 borderColor={textColor}
                 borderWidth="1px"
                 fontWeight="bold"
-                borderRadius="inherit"
+                // borderRadius="inherit"
                 _hover={{ bg: "transparent", borderColor: textColor, color: textColor }}
                 _active={{ bg: "transparent", borderColor: textColor, color: textColor }}
                 _focus={{ boxShadow: "none" }}
@@ -1147,7 +1147,7 @@ const Page = () => {
             <Stack direction="column" spacing={4}>
               <Box display="flex" justifyContent="center" alignItems="center">
                 <Image
-                    objectFit='cover'
+                    // objectFit='cover'
                     maxW={{ base: '100%', sm: '200px' }}
                     src='/assets/fileflo-poster.png'
                     alt='Caffe Latte'
