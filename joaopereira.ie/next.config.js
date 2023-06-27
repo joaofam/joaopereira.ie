@@ -1,23 +1,19 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+// next.config.js
+const withPlugins = require('next-compose-plugins');
+const withTM = require('next-transpile-modules')(['@chakra-ui/react', '@emotion/react']);
 
+const nextConfig = {
+  reactStrictMode: true,
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      const originalEntry = config.entry;
+    }
 
-module.exports = {
-    webpack: (config, { isServer }) => {
-      if (isServer) {
-        const originalEntry = config.entry;
-        config.entry = async () => {
-          const entries = { ...(await originalEntry()) };
-          entries['./utils/font-display'] = './utils/font-display.js';
-          return entries;
-        };
-      }
-  
-      return config;
-    },
-    babel: {
-      plugins: ['@next/babel-plugin-font-display'],
-    },
-  };
+    return config;
+  },
+  babel: {
+    plugins: ['@next/babel-plugin-font-display'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = withPlugins([withTM], nextConfig);
