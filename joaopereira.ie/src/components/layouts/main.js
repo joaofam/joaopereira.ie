@@ -28,7 +28,7 @@ const Main = ({ children, router }) => {
         <meta property="og:site_name" content="Takuya Matsuyama" />
         <meta name="og:title" content="Takuya Matsuyama" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.craftz.dog/card.png" />
+        {/* <meta property="og:image" content="https://www.craftz.dog/card.png" /> */}
         <title>Joao Pereira - Homepage</title>
       </Head>
 
