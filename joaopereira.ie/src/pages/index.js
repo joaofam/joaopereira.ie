@@ -53,6 +53,8 @@ import {
   UnorderedList,
   useColorMode,
   useDisclosure,
+  extendTheme,
+  useBreakpointValue
 } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
@@ -113,16 +115,17 @@ import "./styles.module.css";
 
 init('TDALnVn6n6qtBgb2N');
 
-const ProfileImage = chakra(Image, {
-  shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
-})
-
 const theme = createTheme();
 
 const Icon = ({ icon, color }) => {
+
+  const fontSize = useBreakpointValue({ base: "1.5em", md: "2em" });
+
   return (
     <motion.div whileHover={{ scale: 1.3 }} style={{ cursor: "pointer", color, paddingRight: "20px" }}>
-      <FontAwesomeIcon size="2x" icon={icon} />
+      <Box fontSize={fontSize}>
+        <FontAwesomeIcon icon={icon} />
+      </Box>
     </motion.div>
   );
 };
@@ -153,6 +156,19 @@ function useOnScreen(ref, rootMargin = '0px') {
 }
 
 const Page = () => {
+
+  const fontSize = useBreakpointValue({ base: 15, md: 23 });
+
+  const fontSizeHeading = useBreakpointValue({ base: 32, md: 40 });
+
+  const customTheme = extendTheme({
+    breakpoints: {
+      sm: "320px",
+      md: "768px",
+      lg: "960px",
+      xl: "1200px",
+    },
+  });
 
   const images = ["/assets/profile-2.png", "/assets/joao-3.png", "/assets/expo-joao.png"];
 
@@ -362,7 +378,7 @@ const Page = () => {
 
   return (
     <>
-    <Box
+    {/* <Box
       bgImage={`url('${backgroundImage}')`}
       bgPosition="left top"
       bgRepeat="no-repeat"
@@ -376,16 +392,16 @@ const Page = () => {
       right="0"
       zIndex="-1"
       // backgroundAttachment="fixed"
-    >
-      <Container position="relative" height="100%" width="120ch" maxW="120ch">
+    > */}
+      {/* <Container position="relative" height="100%" width="120ch" maxW="120ch"> */}
         <Box height="100%">
           <Container position="relative">
             <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
               <Box textAlign="left" paddingLeft="20px" marginTop="-20px" whiteSpace="nowrap">
-                <Heading color={listItem} textTransform="uppercase" as="h2" variant="page-title" fontSize="5xl" mb={4}>
+                <Heading color={listItem} textTransform="uppercase" as="h2" variant="page-title" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}  mb={4}>
                   João Pereira
                 </Heading>
-                <Text fontSize={23}>
+                <Text fontSize={fontSize}>
                   <Typewriter
                     words={["Software Developer", "Full Stack Developer", "Cloud Infastructure Developer"]}
                     loop
@@ -409,10 +425,17 @@ const Page = () => {
                     </a>
                     <Center height="50px">
                       <Divider orientation="vertical" />
-                      <Box pl={7} display="flex" justifyContent="center" alignItems="center" width="100%">
+                      <Box 
+                        pl={7} 
+                        display="flex"
+                        justifyContent="center" 
+                        alignItems="center" 
+                        // w={{ base: "100px", md: "150px", lg: "200px" }}
+                        // h={{ base: "100px", md: "150px", lg: "200px" }}
+                      >
                         <Button
                           fontFamily="Space Mono"
-                          fontSize={20}
+                          fontSize={{ base: "sm", md: "md", lg: "xl" }}
                           bg="transparent"
                           color={aboutMe}
                           borderColor={aboutMe}
@@ -444,61 +467,64 @@ const Page = () => {
                   borderColor="transparent"
                   borderWidth={2}
                   borderStyle="solid"
-                  w="200px"
-                  h="200px"
+                  w={{ base: "100px", md: "150px", lg: "200px" }}
+                  h={{ base: "100px", md: "150px", lg: "200px" }}
                   display="inline-block"
                   borderRadius="full"
                   overflow="hidden"
                 >
-                  <div style={{ position: "relative", width: 200, height: 200 }}>
-                    <motion.img
-                      key={images[currentIndex]}
-                      src={images[currentIndex]}
-                      alt="Profile image"
-                      borderRadius="full"
-                      width={200}
-                      height={200}
-                      style={{ position: "absolute", top: 0, left: 0 }}
-                      initial={{ opacity: 0, x: -50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 50 }}
-                      transition={{ duration: 0.6 }}
-                    />
-                  </div>
+                  <Box
+                    position="relative"
+                    w={{ base: "100px", md: "150px", lg: "200px" }}
+                    h={{ base: "100px", md: "150px", lg: "200px" }}
+                    >
+                  <motion.img
+                    key={images[currentIndex]}
+                    src={images[currentIndex]}
+                    alt="Profile image"
+                    borderRadius="full"
+                    width="100%"
+                    height="100%"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 50 }}
+                    transition={{ duration: 0.6 }}
+                  />
+                  </Box>
                 </Box>
               </Box>
             </Box>
           </Container>
-
+          {/* ABOUT ME */}
           <div data-aos="fade-up" data-aos-duration="4000">
             <Text
               ref={ref}
+              fontSize={fontSizeHeading}
               sx={{
                 fontFamily: 'Space Mono',
                 letterSpacing: '2px',
-                fontSize: '34px',
                 paddingTop: '25%',
                 paddingBottom: '20px',
               }}
               id="about-section"
             >
-              <Text fontSize={28} color={textColor} display="inline">
+              <Text fontSize={fontSize} color={textColor} display="inline">
                 1.
               </Text>
             ABOUT
           </Text>
           </div>
 
-          <Flex>
+          <Flex flexDirection={{ base: "column", md: "row" }}>
+          <Box width={{ base: "100%", md: "2000px" }} height={{ base: "100%", md: "500px" }} position="relative">
             <Image
-              maxW={{ base: '100%', sm: '400px' }}
               src='/assets/joao1.1.jpg'
               alt='Caffe Latte'
-              width={500}
-              height={400}
-              p={2}
+              layout='fill'
+              objectFit="cover"
               borderRadius="full"
             />
+          </Box>
             <Box pl={4}>
               <div data-aos="fade-down" data-aos-duration="4000">
                 <Text 
@@ -507,14 +533,14 @@ const Page = () => {
                   fontWeight="bold" 
                   fontFamily="Space Mono" 
                   opacity={helloWorldOpacity}
-                  fontSize={84} 
-                  mt={-16} 
+                  fontSize={{ base: "30px", md: "84px" }} 
+                  mt={{ base: "-33px", md: "-107px" }}
                   ml={4}>
                   HELLO WORLD
                 </Text>
               </div>
               <div data-aos="fade-up">
-                <Text fontSize="18px">
+                <Text fontSize={{ base: "14px", md: "18px" }}>
                   I was born in Portugal but spent most of my formative years
                   in Ireland. Recently, I graduated with a degree in Computer
                   Applications and Software Engineering from DCU. My passion
@@ -531,28 +557,28 @@ const Page = () => {
               <SimpleGrid columns={2} spacing={5} pt={4}>
                 <Box>
                   <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1000">
-                    <Heading fontSize={28}> Name</Heading>
-                    <Text>Joao Pereira</Text>
-                    <Text>(Pronouned Joo-ow)</Text>
+                    <Heading fontSize={{ base: "20px", md: "28px" }}> Name</Heading>
+                    <Text fontSize={{ base: "12px", md: "16px" }}>Joao Pereira</Text>
+                    <Text fontSize={{ base: "12px", md: "16px" }}>(Pronouned Joo-ow)</Text>
                   </div>
                 </Box>
                 <Box>
                   <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1200">
-                    <Heading fontSize={28}>Age</Heading>
-                    <Text>21 Years Old</Text>
+                    <Heading fontSize={{ base: "20px", md: "28px" }}>Age</Heading>
+                    <Text fontSize={{ base: "12px", md: "16px" }}>21 Years Old</Text>
                   </div>
                 </Box>
                 <Box>
                   <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1400">
-                    <Heading fontSize={28}> <FontAwesomeIcon size="1x" icon={faMapPin}/> Location</Heading>
-                    <Text>Dublin, Ireland</Text>
+                    <Heading fontSize={{ base: "20px", md: "28px" }}> <FontAwesomeIcon size="1x" icon={faMapPin}/> Location</Heading>
+                    <Text fontSize={{ base: "12px", md: "16px" }}>Dublin, Ireland</Text>
                   </div>
                 </Box>
                 <Box>
                   <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1600">
-                    <Heading fontSize={28}>Education</Heading>
-                    <Text>Dublin City University</Text>
-                    <Text>B.S. in Computer Applications and Software Engineering</Text>
+                    <Heading fontSize={{ base: "20px", md: "28px" }}>Education</Heading>
+                    <Text fontSize={{ base: "12px", md: "16px" }}>Dublin City University</Text>
+                    <Text fontSize={{ base: "12px", md: "16px" }}>B.S. in Computer Applications and Software Engineering</Text>
                   </div>
                 </Box>
               </SimpleGrid>
@@ -562,12 +588,12 @@ const Page = () => {
             <Box pt={10} display="flex" justifyContent="center" alignItems="center" width="100%">
               <Button
                 fontFamily="Space Mono"
-                fontSize={20}
                 bg="transparent"
                 color={textColor}
                 borderColor={textColor}
                 borderWidth="1px"
                 fontWeight="bold"
+                fontSize={{ base: "sm", md: "md", lg: "xl" }}
                 // borderRadius="inherit"
                 _hover={{ bg: "transparent", borderColor: textColor, color: textColor }}
                 _active={{ bg: "transparent", borderColor: textColor, color: textColor }}
@@ -579,14 +605,15 @@ const Page = () => {
               </Button>
             </Box>
           </div>
+
           <div data-aos="zoom-in-left" data-aos-duration="4000">
             <Text
               ref={ref}
+              pt={{ base: "50%", md: "25%" }}
               sx={{
                 fontFamily: 'Space Mono',
                 letterSpacing: '2px',
                 fontSize: '34px',
-                paddingTop: '25%',
                 paddingBottom: '20px',
               }}
             >
@@ -839,20 +866,20 @@ const Page = () => {
             </TabPanels>
           </Tabs>
 
-          <Container maxW="container.2xl">
+          {/* <Container maxW="container.2xl"> */}
             <div data-aos="fade-up" data-aos-duration="4000">
               <Text
+                pt={{ base: "50%", md: "25%" }}
+                fontSize={fontSizeHeading}
                 ref={ref}
                 sx={{
                   fontFamily: 'Space Mono',
                   letterSpacing: '2px',
-                  fontSize: '34px',
-                  paddingTop: '25%',
                   paddingBottom: '20px',
                 }}
                 data-aos="fade-up"
               >
-                <Text fontSize={28} color={textColor} display="inline">
+                <Text fontSize={fontSizeHeading} color={textColor} display="inline">
                   3.
                 </Text>
                 SKILLS
@@ -863,7 +890,7 @@ const Page = () => {
               <Flex justifyContent='center'>
                 <SimpleGrid 
                   spacing={3} 
-                  templateColumns="repeat(3, minmax(300px, 1fr))"
+                  templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, minmax(300px, 1fr))" }}
                 >
                   <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="200">
                     <Card
@@ -1072,7 +1099,7 @@ const Page = () => {
             </Box>
 
             <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="800">
-              <Heading p={10} fontSize={24}>Technologies</Heading>
+              <Heading p={10} fontSize={fontSizeHeading}>Technologies</Heading>
             </div>
             <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1000">
               <Flex justify="center" pt={5}>
@@ -1122,7 +1149,7 @@ const Page = () => {
                 </Box>
               </Flex>
             </div>
-      
+
             <div data-aos="zoom-in-left" data-aos-duration="2000">
               <Text
               ref={ref}
@@ -1177,7 +1204,7 @@ const Page = () => {
                       >
                         <Stack>
                           <CardBody>
-                            <Heading size='md'>Fileflo</Heading>
+                            <Heading fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}>Fileflo</Heading>
                             <Divider />
                             <Text py='2'>
                               Fileflo is a decentralised blockchain file-sharing web 
@@ -1406,380 +1433,11 @@ const Page = () => {
                 </Box>
               </Stack>
           </Box>
-        <div data-aos="zoom-up" data-aos-duration="2000">
-          <Text
-            ref={ref}
-            sx={{
-              fontFamily: 'Space Mono',
-              letterSpacing: '2px',
-              fontSize: '34px',
-              paddingTop: '25%',
-              paddingBottom: '20px',
-            }}
-          >
-          <Text fontSize={28} color={textColor} display="inline">
-            5.
-          </Text>
-            CONTACT
-          </Text>
-        </div>
 
-        <div data-aos="zoom-up" data-aos-duration="2000" data-aos-delay="200">
-          <Text pb={5}>
-            Check out my socials message me on any of the below platforms or directly send me a message
-          </Text>
-        </div>
-        <Flex direction={{ base: 'column', md: 'row' }} wrap="wrap">
-          <Flex direction="column" width={{ base: "100%", md: "50%" }}>
-            <LinkBox as='article' transition='transform 0.2s linear' _hover={{ transform: 'scale(1.05)' }}>
-              <Container maxW='600px' pb={2}>
-                <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="400">
-                <Card
-                  direction={{ base: 'column', sm: 'row' }}
-                  overflow='hidden'
-                  variant='outline'
-                  sx={{
-                    backgroundColor: "rgba(255, 255, 255, 0.06)",
-                    backdropFilter: "blur(20px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
-                    borderRadius: "10px",
-                    color: "white",
-                  }}
-                >
-                  <Box 
-                    position='relative' 
-                    maxW={{ base: '100%', sm: '200px' }} 
-                    display="flex" 
-                    justifyContent="center" 
-                    alignItems="stretch"
-                  >
-                    <Image
-                      objectFit='cover'
-                      src='/assets/black.png'
-                      alt='Black background'
-                      width={100}
-                      height={100}
-                      
-                    />
-                    <FontAwesomeIcon 
-                      size="4x" 
-                      icon={faGithub} 
-                      style={{ 
-                        color: "#fff", 
-                        position: 'absolute', 
-                        marginTop: "30px" 
-                      }}/>
-                  </Box>
-
-                  <Stack>
-                    <CardBody>
-                      <Heading size='md'>GitHub</Heading>
-                      <Text py='2'>Check out my GitHub</Text>
-                      <LinkOverlay href="https://github.com/joaofam">
-                        <Link>https://github.com/joaofam</Link>
-                      </LinkOverlay>
-                    </CardBody>
-                  </Stack>
-                </Card>
-                </div>
-              </Container>
-            </LinkBox>
-          </Flex>
-          <Flex direction="column" width={{ base: "100%", md: "50%" }}>
-            <LinkBox as='article' transition='transform 0.2s linear' _hover={{ transform: 'scale(1.05)' }}>
-              <Container maxW='600px' pb={2}>
-                <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="600">
-                  <Card
-                    direction={{ base: 'column', sm: 'row' }}
-                    overflow='hidden'
-                    variant='outline'
-                    sx={{
-                      backgroundColor: "rgba(255, 255, 255, 0.06)",
-                      backdropFilter: "blur(20px)",
-                      border: "1px solid rgba(255, 255, 255, 0.1)",
-                      boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
-                      borderRadius: "10px",
-                      color: "white",
-                    }}
-                  >
-                    <Box position='relative' maxW={{ base: '100%', sm: '200px' }} display="flex" justifyContent="center" alignItems="center">
-                      <Image
-                        objectFit='cover'
-                        src='/assets/blue.png'
-                        alt='Caffe Americano'
-                        width={100}
-                        height={100}
-                      />
-                      <FontAwesomeIcon size="4x" icon={faLinkedin} style={{ color: "#fff", position: 'absolute' }} />
-                    </Box>
-
-                    <Stack>
-                      <CardBody>
-                        <Heading size='md'>LinkedIn</Heading>
-                        <Text py='2'>Connect with me on LinkedIn @</Text>
-                        <LinkOverlay href="https://www.linkedin.com/in/joao-joao/">
-                          <Link>https://www.linkedin.com/in/joao-joao/</Link>
-                        </LinkOverlay>
-                      </CardBody>
-                    </Stack>
-                  </Card>
-                </div>
-              </Container>
-            </LinkBox>
-            </Flex>
-            
-            <Flex direction="column" width={{ base: "100%", md: "50%" }}>
-              <LinkBox as='article' transition='transform 0.2s linear' _hover={{ transform: 'scale(1.05)' }}>
-                <Container maxW='600px' pb={2}>
-                  <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="800">
-                    <Card
-                      direction={{ base: 'column', sm: 'row' }}
-                      overflow='hidden'
-                      variant='outline'
-                      sx={{
-                        backgroundColor: "rgba(255, 255, 255, 0.06)",
-                        backdropFilter: "blur(20px)",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
-                        borderRadius: "10px",
-                        color: "white",
-                      }}
-                    >
-                      <Box 
-                        position='relative' 
-                        maxW={{ base: '100%', sm: '200px' }} 
-                        display="flex" 
-                        justifyContent="center" 
-                        alignItems="stretch"
-                      >
-                        <Image
-                          objectFit='cover'
-                          src='/assets/green.png'
-                          alt='Caffe Americano'
-                          width={100}
-                          height={100}
-                          
-                        />
-                        <FontAwesomeIcon 
-                          size="4x" 
-                          icon={faWhatsapp} 
-                          style={{ 
-                            color: "#fff", 
-                            position: 'absolute', 
-                            marginTop: "30px" 
-                          }}/>
-                      </Box>
-
-                      <Stack>
-                        <CardBody>
-                          <Heading size='md'>WhatsApp</Heading>
-                          <Text py='2'>WhatsApp me @</Text>
-                          <LinkOverlay href="https://wa.me/353833294067">
-                            <Link>+353 83 329 4067</Link>
-                          </LinkOverlay>
-                        </CardBody>
-                      </Stack>
-                    </Card>
-                  </div>
-                </Container>
-              </LinkBox>
-            </Flex>
-            
-            <Flex direction="column" width={{ base: "100%", md: "50%" }}>
-            <LinkBox as='article' transition='transform 0.2s linear' _hover={{ transform: 'scale(1.05)' }}>
-              <Container maxW='600px'>
-                <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="1000">
-                  <Card
-                    direction={{ base: 'column', sm: 'row' }}
-                    overflow='hidden'
-                    variant='outline'
-                    sx={{
-                      backgroundColor: "rgba(255, 255, 255, 0.06)",
-                      backdropFilter: "blur(20px)",
-                      border: "1px solid rgba(255, 255, 255, 0.1)",
-                      boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
-                      borderRadius: "10px",
-                      color: "white",
-                    }}
-                  >
-                    <Box
-                      position='relative'
-                      maxW={{ base: '100%', sm: '200px' }}
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="stretch"
-                    >
-                      <Image
-                        objectFit='cover'
-                        src='/assets/red.png'
-                        alt='Caffe Americano'
-                        width={100}
-                        height={300}
-                      />
-                      <FontAwesomeIcon
-                        size="4x"
-                        icon={faGoogle}
-                        style={{
-                          color: "#fff",
-                          position: 'absolute',
-                          marginTop: "30px"
-                        }} />
-                    </Box>
-                    <Stack>
-                      <CardBody>
-                        <Heading size='md'>Gmail</Heading>
-                        <Text py='2'>Email me @</Text>
-                        <LinkOverlay href="mailto:joaopereira2213@gmail.com">
-                          <Link>joaopereira2213@gmail.com</Link>
-                        </LinkOverlay>
-                      </CardBody>
-                    </Stack>
-                  </Card>
-                </div>
-              </Container>
-            </LinkBox>
-          </Flex>
-        </Flex>
-        {alert.show && (
-          <Box my={4} ml="25%" mr="25%">
-            <Alert status={alert.status} borderRadius={4}>
-              <AlertIcon />
-              <AlertTitle mr={2}>{alert.title}</AlertTitle>
-              <AlertDescription>{alert.description}</AlertDescription>
-              <CloseButton
-                position="absolute"
-                right="8px"
-                top="8px"
-                onClick={() => setAlert({ ...alert, show: false })}
-              />
-            </Alert>
-          </Box>
-        )}
-        <Flex direction="row">
-          <Text flex="1" fontSize={18} align="center" pt={20} pr={4} pl={4}>
-            Thank you for visiting my portfolio website!
-            <br></br><br></br>
-            If you have any questions, inquiries, or if 
-            you'd like to <Text display="inline" color={textColor} fontFamily="Space Mono">collaborate</Text> and <Text display="inline" color={textColor} fontFamily="Space Mono">connect</Text>,
-            I would love to hear from you. 
-            <br></br><br></br>
-            Please feel free 
-            to send me a message using the form and I'll 
-            get back to you as soon as possible. 
-            <br></br><br></br>
-            I'm excited to explore opportunities and work
-            together to bring creative ideas to life. 
-            <br></br><br></br>
-            Looking forward to connecting with you!
-          </Text>
-          <Flex direction="column" align="center" flex="1">
-            <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="200">
-            <Flex
-              direction='column'
-              p={8}
-              borderWidth={1}
-              borderRadius={8}
-              boxShadow='lg'
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                boxShadow: '20px 20px 22px rgba(0, 0, 0, 0.2)',
-                borderRadius: '10px',
-                color: 'white',
-                width: '100%',
-              }}
-            >
-              <Box textAlign='center'>
-                <Text         
-                  sx={{
-                    letterSpacing: "2px",
-                    fontSize: "28px",
-                  }}
-                  color={listItem}>Send me a message</Text>
-              </Box>
-              <Box my={4} textAlign='left'>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <FormControl isRequired>
-                  <FormLabel pb={2}>Name</FormLabel>
-                  <InputGroup>
-                    <InputLeftElement pointerEvents='none'>
-                      <FontAwesomeIcon icon={faUser} style={{ color: '#504d56' }} />
-                    </InputLeftElement>
-                    <Input
-                      isRequired
-                      type='text'
-                      placeholder='John Doe'
-                      {...register('name', { required: true })}
-                    />
-                  </InputGroup>
-                </FormControl>
-
-                <FormControl isRequired>
-                  <FormLabel pt={2}>Email</FormLabel>
-                  <InputGroup>
-                    <InputLeftElement pointerEvents='none'>
-                      <FontAwesomeIcon icon={faEnvelope} style={{ color: '#504d56' }} />
-                    </InputLeftElement>
-                    <Input
-                      isRequired
-                      type='email'
-                      placeholder='test@test.com'
-                      {...register('email', { required: true })}
-                    />
-                  </InputGroup>
-                </FormControl>
-
-                <FormControl pt={2}>
-                  <FormLabel>Message</FormLabel>
-                  <Textarea
-                    placeholder='Input message'
-                    {...register('message', { required: true })}
-                  ></Textarea>
-                </FormControl>
-
-                <Button width='full' mt={4} type='submit'>
-                  Send
-                </Button>
-              </form>
-              </Box>
-            </Flex>
-            </div>
-          </Flex>
-        </Flex>
-      </Container>
-      <Flex
-        align="center"
-        justify="center"
-        color="white"
-        py={4}
-        mt={8}
-        pt={20}
-      >
-        <Box w="full" position="relative">
-          <Box
-            position="absolute"
-            bottom="0"
-            left="0"
-            w="full"
-            py={2}
-            textAlign="center"
-          >
-          <Text pb={2}>
-            @ 2023 João Pereira. All rights reserved.
-          </Text>
-          <Tag>
-            <Text>Deployed on Vercel</Text>
-          </Tag>
-          </Box>
-        </Box>
-      </Flex>
+          
     </Box>      
-  </Container>
-</Box>
+  {/* </Container> */}
+{/* /</></Box> */}
 </>
 );};
 
