@@ -1976,6 +1976,7 @@ const Page = () => {
                       type='text'
                       placeholder='John Doe'
                       {...register('name', { required: true })}
+                      color={listItem}
                     />
                   </InputGroup>
                 </FormControl>
@@ -1991,6 +1992,7 @@ const Page = () => {
                       type='email'
                       placeholder='test@test.com'
                       {...register('email', { required: true })}
+                      color={listItem}
                     />
                   </InputGroup>
                 </FormControl>
@@ -2000,6 +2002,7 @@ const Page = () => {
                   <Textarea
                     placeholder='Input message'
                     {...register('message', { required: true })}
+                    color={listItem}
                   ></Textarea>
                 </FormControl>
 
