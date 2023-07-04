@@ -1217,10 +1217,10 @@ const Page = () => {
               >
                 <Box overflow="auto">
                   <Text fontSize={{ base: "14px", md: "18px" }}>
-                    React&nbsp;&nbsp;&nbsp;MaterialUI&nbsp;&nbsp;&nbsp;Nodejs&nbsp;&nbsp;&nbsp;Flask&nbsp;Truffle&nbsp;&nbsp;&nbsp;Ganache&nbsp;&nbsp;&nbsp;Web3&nbsp;&nbsp;Solidity
+                    React&nbsp;&nbsp;MaterialUI&nbsp;&nbsp;Nodejs&nbsp;&nbsp;Flask&nbsp;Truffle&nbsp;&nbsp;Ganache&nbsp;&nbsp;Web3&nbsp;&nbsp;Solidity
                   </Text>
                   <Text pb={4} fontSize={{ base: "14px", md: "18px" }}>
-                    <b>AWS:</b>&nbsp;&nbsp;&nbsp;S3&nbsp;&nbsp;&nbsp;EC2&nbsp;&nbsp;&nbsp;CloudFront&nbsp;&nbsp;&nbsp;AppSync&nbsp;&nbsp;&nbsp;DynamoDB&nbsp;&nbsp;&nbsp;KMS&nbsp;&nbsp;&nbsp;Lambda&nbsp;&nbsp;&nbsp;API Gateway&nbsp;&nbsp;&nbsp;Amplify&nbsp;&nbsp;&nbsp;Cognito&nbsp;&nbsp;&nbsp;SES&nbsp;&nbsp;&nbsp;CloudWatch
+                    <b>AWS:</b>&nbsp;&nbsp;S3&nbsp;&nbsp;EC2&nbsp;&nbsp;CloudFront AppSync&nbsp;&nbsp;DynamoDB&nbsp;&nbsp;KMS&nbsp;&nbsp;Lambda API Gateway&nbsp;&nbsp;Amplify&nbsp;&nbsp;Cognito&nbsp;&nbsp;SES&nbsp;&nbsp;CloudWatch
                   </Text>
                 </Box>
                 <a href="https://github.com/joaofam/FILEFLO" target="_blank" rel="noopener noreferrer">
@@ -1282,10 +1282,10 @@ const Page = () => {
               >
                 <Box overflow="auto">
                   <Text fontSize={{ base: "14px", md: "18px" }}>
-                    React&nbsp;&nbsp;&nbsp;Android Studio&nbsp;IOT&nbsp;&nbsp;&nbsp;Python&nbsp;&nbsp;&nbsp;Arduino IDE
+                    React&nbsp;&nbsp;Android Studio&nbsp;IOT&nbsp;&nbsp;Python&nbsp;&nbsp;Arduino IDE
                   </Text>
                   <Text pb={4} fontSize={{ base: "14px", md: "18px" }}>
-                    <b>AWS:</b> Lambda&nbsp;&nbsp;&nbsp;Amplify&nbsp;&nbsp;&nbsp;Cognito&nbsp;&nbsp;&nbsp;DynamoDB&nbsp;&nbsp;&nbsp;S3
+                    <b>AWS:</b>&nbsp;Lambda&nbsp;&nbsp;Amplify&nbsp;&nbsp;Cognito&nbsp;&nbsp;DynamoDB&nbsp;&nbsp;S3
                   </Text>
                   <a href="https://github.com/joaofam/Venato" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon
@@ -1347,7 +1347,7 @@ const Page = () => {
               >
                 <Box overflow="auto">
                 <Text pb={4} fontSize={{ base: "14px", md: "18px" }}>
-                  React&nbsp;&nbsp;&nbsp;Nextjs&nbsp;&nbsp;&nbsp;FramerMotion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChakraUI&nbsp;&nbsp;&nbsp;Vercel&nbsp;&nbsp;&nbsp;Emailjs
+                  React&nbsp;&nbsp;Nextjs&nbsp;&nbsp;FramerMotion&nbsp;&nbsp;AOS&nbsp;&nbsp;ChakraUI&nbsp;&nbsp;Vercel&nbsp;&nbsp;Emailjs
                 </Text>
                   <a href="https://github.com/joaofam/joaopereira.ie" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon
