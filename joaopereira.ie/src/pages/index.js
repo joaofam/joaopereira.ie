@@ -54,7 +54,8 @@ import {
   useColorMode,
   useDisclosure,
   extendTheme,
-  useBreakpointValue
+  useBreakpointValue,
+  useMediaQuery
 } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
@@ -157,19 +158,6 @@ function useOnScreen(ref, rootMargin = '0px') {
 
 const Page = () => {
 
-  const fontSize = useBreakpointValue({ base: 15, md: 23 });
-
-  const fontSizeHeading = useBreakpointValue({ base: 32, md: 40 });
-
-  const customTheme = extendTheme({
-    breakpoints: {
-      sm: "320px",
-      md: "768px",
-      lg: "960px",
-      xl: "1200px",
-    },
-  });
-
   const images = ["/assets/profile-2.png", "/assets/joao-3.png", "/assets/expo-joao.png"];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -243,27 +231,28 @@ const Page = () => {
     };
   }, []);
 
+  // Font Sizes
+  const fontSize = useBreakpointValue({ base: 15, md: 23 });
+
+  const fontSizeHeading = useBreakpointValue({ base: 32, md: 38 });
+  const fontSizeHeadingNo = useBreakpointValue({ base: 24, md: 28 });
+
+  // Colour Mode
   const { colorMode } = useColorMode();
 
   const backgroundImage =
     colorMode === 'light' ? '/assets/light-layered-waves-haikei.svg' : '/assets/dark-layered-waves-haikei.svg';
 
   const githubIconColor = colorMode === 'light' ? 'black' : 'white';
-
   const listItem = colorMode === 'light' ? 'black' : 'white';
-
   const textColor = colorMode === 'light' ? '#3d7aed' : '#ff63c3';
-
   const aboutMe = colorMode === 'light' ? '#ffffff' : '#ff63c3';
-
   const helloWorldOpacity = colorMode === 'light' ? '0.8' : '0.1';
-
   const TheWell = colorMode === 'light' ? '/assets/TheWellLight.png' : '/assets/TheWellDark-no-bg.png';
-
   const UO = colorMode === 'light' ? '/assets/UOLight.png' : '/assets/UO.png';
-
   const TheAcademy = colorMode === 'light' ?  '/assets/AcademyLight.png' : '/assets/Academy-no-bg.png';
-   
+  const linkedinColor = colorMode === 'light' ? 'white' : '#0072b1';
+
   const zoomIn = keyframes`
     from {transform: scale(1);}
     to {transform: scale(1.1);}
@@ -324,6 +313,8 @@ const Page = () => {
     });
   };
 
+  const [isDesktop] = useMediaQuery("(min-width: 768px)");
+
   const onSubmit = async (data) => {
     try {
       const templateParams = {
@@ -378,7 +369,7 @@ const Page = () => {
 
   return (
     <>
-    {/* <Box
+    <Box
       bgImage={`url('${backgroundImage}')`}
       bgPosition="left top"
       bgRepeat="no-repeat"
@@ -392,16 +383,16 @@ const Page = () => {
       right="0"
       zIndex="-1"
       // backgroundAttachment="fixed"
-    > */}
+    >
       {/* <Container position="relative" height="100%" width="120ch" maxW="120ch"> */}
         <Box height="100%">
           <Container position="relative">
             <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
               <Box textAlign="left" paddingLeft="20px" marginTop="-20px" whiteSpace="nowrap">
-                <Heading color={listItem} textTransform="uppercase" as="h2" variant="page-title" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}  mb={4}>
+                <Heading color="white" textTransform="uppercase" as="h2" variant="page-title" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}  mb={4}>
                   João Pereira
                 </Heading>
-                <Text fontSize={fontSize}>
+                <Text fontSize={fontSize} color="white">
                   <Typewriter
                     words={["Software Developer", "Full Stack Developer", "Cloud Infastructure Developer"]}
                     loop
@@ -418,7 +409,7 @@ const Page = () => {
                       <Icon icon={faGithub} color={githubIconColor} />
                     </a>
                     <a href="https://www.linkedin.com/in/joao-joao/" target="_blank" rel="noopener noreferrer">
-                      <Icon icon={faLinkedin} color="#0072b1" />
+                      <Icon icon={faLinkedin} color={linkedinColor} />
                     </a>
                     <a href="joaopereira2213@gmail.com" target="_blank" rel="noopener noreferrer">
                       <Icon icon={faGoogle} color="#c71610" />
@@ -507,8 +498,9 @@ const Page = () => {
                 paddingBottom: '20px',
               }}
               id="about-section"
+              pl={5}
             >
-              <Text fontSize={fontSize} color={textColor} display="inline">
+              <Text fontSize={fontSizeHeadingNo} color={textColor} display="inline">
                 1.
               </Text>
             ABOUT
@@ -578,7 +570,7 @@ const Page = () => {
                   <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1600">
                     <Heading fontSize={{ base: "20px", md: "28px" }}>Education</Heading>
                     <Text fontSize={{ base: "12px", md: "16px" }}>Dublin City University</Text>
-                    <Text fontSize={{ base: "12px", md: "16px" }}>B.S. in Computer Applications and Software Engineering</Text>
+                    <Text fontSize={{ base: "12px", md: "16px" }}>B.S. in Computer Applications and Software Engineering (1.1 Grade)</Text>
                   </div>
                 </Box>
               </SimpleGrid>
@@ -613,11 +605,12 @@ const Page = () => {
               sx={{
                 fontFamily: 'Space Mono',
                 letterSpacing: '2px',
-                fontSize: '34px',
                 paddingBottom: '20px',
               }}
+              pl={5}
+              fontSize={fontSizeHeading}
             >
-              <Text fontSize={28} color={textColor} display="inline">
+              <Text fontSize={fontSizeHeadingNo} color={textColor} display="inline">
                 2.
               </Text>
               EXPERIENCE
@@ -673,7 +666,7 @@ const Page = () => {
                             2022 March - 2022 August
                           </Text>
                           <Collapse startingHeight={20} in={showKLAS}>
-                            <Text sx={{ p: 2 }}>
+                            <Text sx={{ p: 2 }} fontSize={{ base: "14px", md: "16px" }}>
                               During my time at Klas, I was a valued member of a 10-person <Text sx={{ fontWeight: 'bold', color: textColor, display: 'inline' }}>Agile</Text> team that developed Blackrock, a <Text sx={{ fontWeight: 'bold', color: textColor, display: 'inline' }}>React</Text>-based network configuration and monitoring app with a <Text sx={{ fontWeight: 'bold', color: textColor, display: 'inline' }}>Python</Text> backend. As a key contributor to the project, I:
                               <br /><br />
                               <UnorderedList>
@@ -737,7 +730,7 @@ const Page = () => {
                             2021 October - 2023 June
                           </Text>
                           <Collapse startingHeight={20} in={showTheWell}>
-                            <Text sx={{ p: 2 }}>
+                            <Text sx={{ p: 2 }} fontSize={{ base: "14px", md: "16px" }}>
                               <UnorderedList>
                                 <ListItem> Thrived in a high-volume, fast-paced bar environment, efficiently preparing and serving hundreds of cocktails and drinks within demanding timeframes.</ListItem>
                                 <ListItem> Played a vital role in the development of the cocktail menu, contributing innovative and crowd-pleasing creations to enhance the customer experience. </ListItem>
@@ -791,7 +784,7 @@ const Page = () => {
                             2021 June - 2021 October
                           </Text>
                           <Collapse startingHeight={20} in={showUB}>
-                            <Text sx={{ p: 2 }}>
+                            <Text sx={{ p: 2 }} fontSize={{ base: "14px", md: "16px" }}>
                               <UnorderedList>
                                 <ListItem>Expertly crafted and garnished cocktails, showcasing attention to detail and a keen eye for aesthetics in a higher-class bar setting.</ListItem>
                                 <ListItem> Expanded knowledge of wines and beers through extensive training and hands-on experience, providing recommendations and enhancing the customer's beverage experience. </ListItem>
@@ -845,7 +838,7 @@ const Page = () => {
                             2020 January - 2020 March
                           </Text>
                           <Collapse startingHeight={20} in={showTheAcademy}>
-                            <Text sx={{ p: 2 }}>
+                            <Text sx={{ p: 2 }} fontSize={{ base: "14px", md: "16px" }}>
                               <UnorderedList>
                                 <ListItem> Thrived in a fast-paced and high-energy environment of an extremely busy nightclub.</ListItem>
                                 <ListItem> Demonstrated exceptional multitasking skills by efficiently serving multiple customers simultaneously during peak hours. </ListItem>                        
@@ -866,7 +859,7 @@ const Page = () => {
             </TabPanels>
           </Tabs>
 
-          {/* <Container maxW="container.2xl"> */}
+          <Container maxW="container.2xl">
             <div data-aos="fade-up" data-aos-duration="4000">
               <Text
                 pt={{ base: "50%", md: "25%" }}
@@ -878,8 +871,9 @@ const Page = () => {
                   paddingBottom: '20px',
                 }}
                 data-aos="fade-up"
+                pl={5}
               >
-                <Text fontSize={fontSizeHeading} color={textColor} display="inline">
+                <Text fontSize={fontSizeHeadingNo} color={textColor} display="inline">
                   3.
                 </Text>
                 SKILLS
@@ -901,7 +895,7 @@ const Page = () => {
                         boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
                         borderRadius: "10px",
                         color: "white",
-                        height: "100%"
+                        height: "100%",
                       }}
                     >
                       <CardHeader>
@@ -915,7 +909,10 @@ const Page = () => {
                           <ListItem>REST API</ListItem>
                           <ListItem>GraphQL</ListItem>
                           <ListItem>Nodejs</ListItem>
-                          <ListItem>SQL</ListItem>
+                          <ListItem>
+                            <Box pr={40}>SQL</Box>
+                          </ListItem>
+
                         </UnorderedList>
                       </CardBody>
                       <CardFooter
@@ -1099,7 +1096,7 @@ const Page = () => {
             </Box>
 
             <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="800">
-              <Heading p={10} fontSize={fontSizeHeading}>Technologies</Heading>
+              <Heading p={{ base: "15", md: "10" }} fontSize={{ base: "24px", md: "28px" }}>Technologies</Heading>
             </div>
             <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1000">
               <Flex justify="center" pt={5}>
@@ -1156,12 +1153,13 @@ const Page = () => {
               sx={{
                 fontFamily: 'Space Mono',
                 letterSpacing: '2px',
-                fontSize: '34px',
                 paddingTop: '25%',
                 paddingBottom: '20px',
               }}
+              fontSize={fontSizeHeading}
+              pl={5}
             >
-              <Text fontSize={28} color={textColor} display="inline">
+              <Text fontSize={fontSizeHeadingNo} color={textColor} display="inline">
                 4.
               </Text>
               PROJECT SHOWCASE
@@ -1170,6 +1168,205 @@ const Page = () => {
 
           <Text sx={{ fontSize: "18px"}}>Below is a highlight of some of the projects under my belt however you can find all projects within my <Link>GitHub</Link></Text>
           {/* PROJECT 1 */}
+
+          {!isDesktop ? (
+          <>
+          <Stack spacing={4} pt={10}>
+            <Card 
+              maxW='md'
+              variant="outline"
+              sx={{
+                  backgroundColor: "rgba(255, 255, 255, 0.06)",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                  borderRadius: "10px",
+                  color: "white",
+                  padding: "10px",
+                }}
+            >
+              <CardHeader>
+                <Flex spacing='4'>
+                  <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                    <Box>
+                      <Heading size='sm' fontSize="20px">Fileflo</Heading>
+                    </Box>
+                  </Flex>
+                </Flex>
+              </CardHeader>
+              <CardBody>
+                <Text fontSize={{ base: "14px", md: "18px" }}>
+                  Fileflo is a decentralised blockchain file-sharing web application that offers an impressive level of security and privacy for users. Its advanced symmetric encryption technology ensures the utmost privacy and protection for all files, while the distributed file system provides efficient and seamless retrieval of files. With its comprehensive architecture consisting of a dApp, IPFS file storage, and a serverless AWS backend, Fileflo is the ultimate solution for secure and private file sharing.
+                </Text>
+              </CardBody>
+              <Image
+                src='/assets/fileflo-poster.png'
+                width={500}
+                height={100}
+                objectFit='cover'
+                alt='Chakra UI'
+              />
+              <CardFooter
+                justify='space-between'
+                flexWrap='wrap'
+                sx={{
+                  '& > button': {
+                    minW: '136px',
+                  },
+                }}
+              >
+                <Box overflow="auto">
+                  <Text fontSize={{ base: "14px", md: "18px" }}>
+                    React&nbsp;&nbsp;&nbsp;MaterialUI&nbsp;&nbsp;&nbsp;Nodejs&nbsp;&nbsp;&nbsp;Flask&nbsp;Truffle&nbsp;&nbsp;&nbsp;Ganache&nbsp;&nbsp;&nbsp;Web3&nbsp;&nbsp;Solidity
+                  </Text>
+                  <Text pb={4} fontSize={{ base: "14px", md: "18px" }}>
+                    <b>AWS:</b>&nbsp;&nbsp;&nbsp;S3&nbsp;&nbsp;&nbsp;EC2&nbsp;&nbsp;&nbsp;CloudFront&nbsp;&nbsp;&nbsp;AppSync&nbsp;&nbsp;&nbsp;DynamoDB&nbsp;&nbsp;&nbsp;KMS&nbsp;&nbsp;&nbsp;Lambda&nbsp;&nbsp;&nbsp;API Gateway&nbsp;&nbsp;&nbsp;Amplify&nbsp;&nbsp;&nbsp;Cognito&nbsp;&nbsp;&nbsp;SES&nbsp;&nbsp;&nbsp;CloudWatch
+                  </Text>
+                </Box>
+                <a href="https://github.com/joaofam/FILEFLO" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon
+                    size="2x"
+                    icon={faGithub}
+                    color={githubIconColor}
+                    style={{ transition: 'transform 0.2s' }}
+                    onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.3)'; }}
+                    onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                  />
+                </a>
+              </CardFooter>
+            </Card>
+
+            <Card 
+              pt={10}
+              maxW='md'
+              variant="outline"
+              sx={{
+                  backgroundColor: "rgba(255, 255, 255, 0.06)",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                  borderRadius: "10px",
+                  color: "white",
+                  padding: "10px",
+                }}
+            >
+              <CardHeader>
+                <Flex spacing='4'>
+                  <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                    <Box>
+                      <Heading size='sm' fontSize="20px">Venato</Heading>
+                    </Box>
+                  </Flex>
+                </Flex>
+              </CardHeader>
+              <CardBody>
+                <Text fontSize={{ base: "14px", md: "18px" }}>
+                  An android application built upon the React Native framework, specifically designed to address the prevalent issue of stolen bikes in today's world. By harnessing the power of IoT GPS/GSM devices integrated with Arduino technology, Venato enables users to effectively track the real-time location of their bikes and receive the information directly on their mobile devices.
+                </Text>
+              </CardBody>
+              <Image
+                src='/assets/Venato.png'
+                width={500}
+                height={100}
+                objectFit='cover'
+                alt='Chakra UI'
+              />
+              <CardFooter
+                justify='space-between'
+                flexWrap='wrap'
+                sx={{
+                  '& > button': {
+                    minW: '136px',
+                  },
+                }}
+              >
+                <Box overflow="auto">
+                  <Text fontSize={{ base: "14px", md: "18px" }}>
+                    React&nbsp;&nbsp;&nbsp;Android Studio&nbsp;IOT&nbsp;&nbsp;&nbsp;Python&nbsp;&nbsp;&nbsp;Arduino IDE
+                  </Text>
+                  <Text pb={4} fontSize={{ base: "14px", md: "18px" }}>
+                    <b>AWS:</b> Lambda&nbsp;&nbsp;&nbsp;Amplify&nbsp;&nbsp;&nbsp;Cognito&nbsp;&nbsp;&nbsp;DynamoDB&nbsp;&nbsp;&nbsp;S3
+                  </Text>
+                  <a href="https://github.com/joaofam/Venato" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon
+                      size="2x"
+                      icon={faGithub}
+                      color={githubIconColor}
+                      style={{ transition: 'transform 0.2s' }}
+                      onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.3)'; }}
+                      onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                    />
+                  </a>
+                </Box>
+              </CardFooter>
+            </Card>
+
+            <Card 
+              pt={10}
+              maxW='md'
+              variant="outline"
+              sx={{
+                  backgroundColor: "rgba(255, 255, 255, 0.06)",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                  borderRadius: "10px",
+                  color: "white",
+                  padding: "10px",
+                }}
+            >
+              <CardHeader>
+                <Flex spacing='4'>
+                  <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                    <Box>
+                      <Heading size='sm' fontSize="20px">joaopereira.ie</Heading>
+                    </Box>
+                  </Flex>
+                </Flex>
+              </CardHeader>
+              <CardBody>
+                <Text fontSize={{ base: "14px", md: "18px" }}>
+                  Welcome to my personal website, joaopereira.ie! This site serves as a visually engaging platform to showcase my skills and experience. Built with React and Next.js, the website is hosted on Vercel, providing a seamless and high-performance user experience. Designed with responsiveness in mind, the site can be viewed on all devices, ensuring a smooth browsing experience for everyone. Explore and learn more about my professional journey and expertise.
+                </Text>
+              </CardBody>
+              <Image
+                src='/assets/joaopereira2.png'
+                width={500}
+                height={100}
+                objectFit='cover'
+                alt='Chakra UI'
+              />
+              <CardFooter
+                justify='space-between'
+                flexWrap='wrap'
+                sx={{
+                  '& > button': {
+                    minW: '136px',
+                  },
+                }}
+              >
+                <Box overflow="auto">
+                <Text pb={4} fontSize={{ base: "14px", md: "18px" }}>
+                  React&nbsp;&nbsp;&nbsp;Nextjs&nbsp;&nbsp;&nbsp;FramerMotion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChakraUI&nbsp;&nbsp;&nbsp;Vercel&nbsp;&nbsp;&nbsp;Emailjs
+                </Text>
+                  <a href="https://github.com/joaofam/joaopereira.ie" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon
+                      size="2x"
+                      icon={faGithub}
+                      color={githubIconColor}
+                      style={{ transition: 'transform 0.2s' }}
+                      onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.3)'; }}
+                      onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                    />
+                  </a>
+                </Box>
+              </CardFooter>
+            </Card>
+          </Stack>
+          </>
+
+          ) : (
+
           <Box mt={10}>
             <Stack direction="column" spacing={4}>
               <Box display="flex" justifyContent="center" alignItems="center">
@@ -1259,6 +1456,7 @@ const Page = () => {
                     </div>
                   </Flex>
                 </Box>
+                   
 
                 <Box pt={10} display="flex" justifyContent="center" alignItems="center">
                   <Flex direction="column">
@@ -1433,11 +1631,419 @@ const Page = () => {
                 </Box>
               </Stack>
           </Box>
+          )}
+          <div data-aos="zoom-up" data-aos-duration="2000">
+          <Text
+            ref={ref}
+            sx={{
+              fontFamily: 'Space Mono',
+              letterSpacing: '2px',
+              paddingTop: '25%',
+              paddingBottom: '20px',
+            }}
+            fontSize={fontSizeHeading}
+            pl={5}
+          >
+          <Text fontSize={fontSizeHeadingNo} color={textColor} display="inline">
+            5.
+          </Text>
+            CONTACT
+          </Text>
+        </div>
+
+        <div data-aos="zoom-up" data-aos-duration="2000" data-aos-delay="200">
+          <Text pb={5} fontSize={{ base: "14px", md: "18px" }}>
+            Check out my socials message me on any of the below platforms or directly send me a message
+          </Text>
+        
+
+        </div>
+        {isDesktop ? (
+        <Flex direction={{ base: 'column', md: 'row' }} wrap="wrap">
+          <Flex direction="column" width={{ base: "100%", md: "50%" }}>
+            <LinkBox as='article' transition='transform 0.2s linear' _hover={{ transform: 'scale(1.05)' }}>
+              <Container maxW='600px' pb={2}>
+                <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="400">
+                <Card
+                  direction={{ base: 'column', sm: 'row' }}
+                  overflow='hidden'
+                  variant='outline'
+                  sx={{
+                    backgroundColor: "rgba(255, 255, 255, 0.06)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                    borderRadius: "10px",
+                    color: "white",
+                  }}
+                >
+                  <Box 
+                    position='relative' 
+                    maxW={{ base: '100%', sm: '200px' }} 
+                    display="flex" 
+                    justifyContent="center" 
+                    alignItems="stretch"
+                  >
+                    <Image
+                      objectFit='cover'
+                      src='/assets/black.png'
+                      alt='Black background'
+                      width={100}
+                      height={100}
+                      
+                    />
+                    <FontAwesomeIcon 
+                      size="4x" 
+                      icon={faGithub} 
+                      style={{ 
+                        color: "#fff", 
+                        position: 'absolute', 
+                        marginTop: "30px" 
+                      }}/>
+                  </Box>
+
+                  <Stack>
+                    <CardBody>
+                      <Heading size='md'>GitHub</Heading>
+                      <Text py='2'>Check out my GitHub</Text>
+                      <LinkOverlay href="https://github.com/joaofam">
+                        <Link>https://github.com/joaofam</Link>
+                      </LinkOverlay>
+                    </CardBody>
+                  </Stack>
+                </Card>
+                </div>
+              </Container>
+            </LinkBox>
+          </Flex>
+          <Flex direction="column" width={{ base: "100%", md: "50%" }}>
+            <LinkBox as='article' transition='transform 0.2s linear' _hover={{ transform: 'scale(1.05)' }}>
+              <Container maxW='600px' pb={2}>
+                <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="600">
+                  <Card
+                    direction={{ base: 'column', sm: 'row' }}
+                    overflow='hidden'
+                    variant='outline'
+                    sx={{
+                      backgroundColor: "rgba(255, 255, 255, 0.06)",
+                      backdropFilter: "blur(20px)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                      borderRadius: "10px",
+                      color: "white",
+                    }}
+                  >
+                    <Box position='relative' maxW={{ base: '100%', sm: '200px' }} display="flex" justifyContent="center" alignItems="center">
+                      <Image
+                        objectFit='cover'
+                        src='/assets/blue.png'
+                        alt='Caffe Americano'
+                        width={100}
+                        height={100}
+                      />
+                      <FontAwesomeIcon size="4x" icon={faLinkedin} style={{ color: "#fff", position: 'absolute' }} />
+                    </Box>
+
+                    <Stack>
+                      <CardBody>
+                        <Heading size='md'>LinkedIn</Heading>
+                        <Text py='2'>Connect with me on LinkedIn @</Text>
+                        <LinkOverlay href="https://www.linkedin.com/in/joao-joao/">
+                          <Link>linkedin.com/in/joao-joao/</Link>
+                        </LinkOverlay>
+                      </CardBody>
+                    </Stack>
+                  </Card>
+                </div>
+              </Container>
+            </LinkBox>
+            </Flex>
+            
+            <Flex direction="column" width={{ base: "100%", md: "50%" }}>
+              <LinkBox as='article' transition='transform 0.2s linear' _hover={{ transform: 'scale(1.05)' }}>
+                <Container maxW='600px' pb={2}>
+                  <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="800">
+                    <Card
+                      direction={{ base: 'column', sm: 'row' }}
+                      overflow='hidden'
+                      variant='outline'
+                      sx={{
+                        backgroundColor: "rgba(255, 255, 255, 0.06)",
+                        backdropFilter: "blur(20px)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                        borderRadius: "10px",
+                        color: "white",
+                      }}
+                    >
+                      <Box 
+                        position='relative' 
+                        maxW={{ base: '100%', sm: '200px' }} 
+                        display="flex" 
+                        justifyContent="center" 
+                        alignItems="stretch"
+                      >
+                        <Image
+                          objectFit='cover'
+                          src='/assets/green.png'
+                          alt='Caffe Americano'
+                          width={100}
+                          height={100}
+                          
+                        />
+                        <FontAwesomeIcon 
+                          size="4x" 
+                          icon={faWhatsapp} 
+                          style={{ 
+                            color: "#fff", 
+                            position: 'absolute', 
+                            marginTop: "30px" 
+                          }}/>
+                      </Box>
+
+                      <Stack>
+                        <CardBody>
+                          <Heading size='md'>WhatsApp</Heading>
+                          <Text py='2'>WhatsApp me @</Text>
+                          <LinkOverlay href="https://wa.me/353833294067">
+                            <Link>+353 83 329 4067</Link>
+                          </LinkOverlay>
+                        </CardBody>
+                      </Stack>
+                    </Card>
+                  </div>
+                </Container>
+              </LinkBox>
+            </Flex>
+            
+            <Flex direction="column" width={{ base: "100%", md: "50%" }}>
+            <LinkBox as='article' transition='transform 0.2s linear' _hover={{ transform: 'scale(1.05)' }}>
+              <Container maxW='600px'>
+                <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="1000">
+                  <Card
+                    direction={{ base: 'column', sm: 'row' }}
+                    overflow='hidden'
+                    variant='outline'
+                    sx={{
+                      backgroundColor: "rgba(255, 255, 255, 0.06)",
+                      backdropFilter: "blur(20px)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                      borderRadius: "10px",
+                      color: "white",
+                    }}
+                  >
+                    <Box
+                      position='relative'
+                      maxW={{ base: '100%', sm: '200px' }}
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="stretch"
+                    >
+                      <Image
+                        objectFit='cover'
+                        src='/assets/red.png'
+                        alt='Caffe Americano'
+                        width={100}
+                        height={300}
+                      />
+                      <FontAwesomeIcon
+                        size="4x"
+                        icon={faGoogle}
+                        style={{
+                          color: "#fff",
+                          position: 'absolute',
+                          marginTop: "30px"
+                        }} />
+                    </Box>
+                    <Stack>
+                      <CardBody>
+                        <Heading size='md'>Gmail</Heading>
+                        <Text py='2'>Email me @</Text>
+                        <LinkOverlay href="mailto:joaopereira2213@gmail.com">
+                          <Link>joaopereira2213@gmail.com</Link>
+                        </LinkOverlay>
+                      </CardBody>
+                    </Stack>
+                  </Card>
+                </div>
+              </Container>
+            </LinkBox>
+          </Flex>
+        </Flex>
+        ) : (
+          <Center>
+            <SimpleGrid columns={[2, null, 2]} spacing="75px">
+              <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000">
+                <a href="https://github.com/joaofam" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon size="3x" icon={faGithub} style={{ color: listItem }} />
+                </a>
+              </div>
+              <div data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1200">
+                <a href="https://www.linkedin.com/in/joao-joao/" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon size="3x" icon={faLinkedin} style={{ color: listItem }} />
+                </a>
+              </div>
+              <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1200">
+                <a href="joaopereira2213@gmail.com" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon size="3x" icon={faGoogle} style={{ color: listItem }} />
+                </a>
+              </div>
+              <div data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1400">
+                <a href="https://wa.me/353833294067" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon size="3x" icon={faWhatsapp} style={{ color: listItem }} />
+                </a>
+              </div>
+            </SimpleGrid>
+          </Center>
+        )}
+        {alert.show && (
+          <Box my={4} ml="25%" mr="25%">
+            <Alert status={alert.status} borderRadius={4}>
+              <AlertIcon />
+              <AlertTitle mr={2}>{alert.title}</AlertTitle>
+              <AlertDescription>{alert.description}</AlertDescription>
+              <CloseButton
+                position="absolute"
+                right="8px"
+                top="8px"
+                onClick={() => setAlert({ ...alert, show: false })}
+              />
+            </Alert>
+          </Box>
+        )}
+        <Flex direction={isDesktop ? "row" : "column"}>
+        <Text flex="1" fontSize={{ base: "14px", md: "18px" }} align="center" pt={useBreakpointValue({base: "10", md: "20"})} pr={4} pl={4} pb={useBreakpointValue({base: "10", md: "0"})}>
+          Thank you for visiting my portfolio website!
+          <br /><br />
+          If you have any questions, inquiries, or if 
+          you'd like to <Text display="inline" color={textColor} fontFamily="Space Mono">collaborate</Text> and <Text display="inline" color={textColor} fontFamily="Space Mono">connect</Text>,
+          I would love to hear from you.
+          {isDesktop ? (
+            <>
+              <br /><br />
+              Please feel free 
+              to send me a message using the form and I'll 
+              get back to you as soon as possible. 
+              <br /><br />
+              I'm excited to explore opportunities and work
+              together to bring creative ideas to life. 
+              <br /><br />
+              Looking forward to connecting with you!
+            </>
+          ) : null}
+        </Text>
+          <Flex direction="column" align="center" flex="1">
+            <div data-aos="zoom-in-up" data-aos-duration="4000" data-aos-delay="200">
+            <Flex
+              direction='column'
+              p={8}
+              borderWidth={1}
+              borderRadius={8}
+              boxShadow='lg'
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: '20px 20px 22px rgba(0, 0, 0, 0.2)',
+                borderRadius: '10px',
+                color: 'white',
+                width: '100%',
+              }}
+            >
+              <Box textAlign='center'>
+                <Text         
+                  sx={{
+                    letterSpacing: "2px",
+                    fontSize: "28px",
+                  }}
+                  color={listItem}>
+                  Send me a message
+                </Text>
+              </Box>
+              <Box my={4} textAlign='left'>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <FormControl isRequired>
+                  <FormLabel pb={2}>Name</FormLabel>
+                  <InputGroup>
+                    <InputLeftElement pointerEvents='none'>
+                      <FontAwesomeIcon icon={faUser} style={{ color: '#504d56' }} />
+                    </InputLeftElement>
+                    <Input
+                      isRequired
+                      type='text'
+                      placeholder='John Doe'
+                      {...register('name', { required: true })}
+                    />
+                  </InputGroup>
+                </FormControl>
+
+                <FormControl isRequired>
+                  <FormLabel pt={2}>Email</FormLabel>
+                  <InputGroup>
+                    <InputLeftElement pointerEvents='none'>
+                      <FontAwesomeIcon icon={faEnvelope} style={{ color: '#504d56' }} />
+                    </InputLeftElement>
+                    <Input
+                      isRequired
+                      type='email'
+                      placeholder='test@test.com'
+                      {...register('email', { required: true })}
+                    />
+                  </InputGroup>
+                </FormControl>
+
+                <FormControl pt={2}>
+                  <FormLabel>Message</FormLabel>
+                  <Textarea
+                    placeholder='Input message'
+                    {...register('message', { required: true })}
+                  ></Textarea>
+                </FormControl>
+
+                <Button width='full' mt={4} type='submit'>
+                  Send
+                </Button>
+              </form>
+              </Box>
+            </Flex>
+            </div>
+          </Flex>
+        </Flex>
+      </Container>
+      <Flex
+        align="center"
+        justify="center"
+        color="white"
+        py={4}
+        mt={8}
+        pt={20}
+      >
+        <Box w="full" position="relative">
+          <Box
+            position="absolute"
+            bottom="0"
+            left="0"
+            w="full"
+            py={2}
+            textAlign="center"
+          >
+          <Text pb={2}>
+            @ 2023 João Pereira. All rights reserved.
+          </Text>
+          <Tag>
+            <Text>Deployed on Vercel</Text>
+          </Tag>
+          </Box>
+        </Box>
+      </Flex>
 
           
     </Box>      
   {/* </Container> */}
-{/* /</></Box> */}
+</Box>
 </>
 );};
 
