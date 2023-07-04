@@ -1885,7 +1885,7 @@ const Page = () => {
                 </a>
               </div>
               <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1200">
-                <a href="joaopereira2213@gmail.com" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:joaopereira2213@gmail.com" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon size="3x" icon={faGoogle} style={{ color: listItem }} />
                 </a>
               </div>
