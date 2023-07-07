@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Text, useColorModeValue } from '@chakra-ui/react'
+import { Text, useColorModeValue, Box  } from '@chakra-ui/react'
 // import FootprintIcon from './icons/footprint'
 import styled from '@emotion/styled'
 
@@ -27,14 +27,30 @@ const Logo = () => {
 
       <LogoBox>
         {/* <FootprintIcon /> */}
-        <Text
-          color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-          fontFamily='M PLUS Rounded 1c", sans-serif'
-          fontWeight="bold"
-          ml={3}
-        >
-          João Pereira
-        </Text>
+        <Box>
+          <Text
+            color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+            fontFamily='Space Mono, monospace'
+            fontWeight="bold"
+            ml={3}
+            letterSpacing={1}
+            display="inline"
+            textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+          >
+            JOAO PEREIRA
+          </Text>
+          <Text
+            color={useColorModeValue('#3d7aed', '#ff63c3')}
+            fontFamily='Space Mono'
+            fontWeight="bold"
+            ml={3}
+            letterSpacing={0}
+            display="inline"
+            // bgClip="text"
+          >
+            .
+          </Text>
+        </Box>
       </LogoBox>
 
     </Link>)

@@ -14,6 +14,7 @@ import {
   MenuButton,
   IconButton,
   useColorModeValue,
+  Text
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
@@ -75,16 +76,9 @@ const Navbar = props => {
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
           flexGrow={1}
-          mt={{ base: 4, md: 0 }}
+          mt={{ base: 4, md: 3 }}
         >
-          {/* <LinkItem href="/works" path={path}>
-            Projects
-          </LinkItem>
-          <LinkItem href="/posts" path={path}>
-            Posts
-          </LinkItem>
-          <LinkItem href="https://uses.craftz.dog/">Interests</LinkItem> */}
-          <LinkItem
+          {/* <Link
             target="_blank"
             href="https://github.com/joaofam/joaopereira.ie/tree/main/joaopereira.ie"
             path={path}
@@ -94,9 +88,58 @@ const Navbar = props => {
             pl={2}
             sx={{ fontFamily: 'Space Mono'}}
           >
-            <IoLogoGithub />
-            Source
-          </LinkItem>
+            <Text
+              color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+              fontFamily='Space Mono, monospace'
+              fontWeight="bold"
+              ml={3}
+              letterSpacing={1}
+              display="inline"
+              textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+              fontSize={14}
+            >
+            ABOUT
+            </Text>
+              <Text
+                color={useColorModeValue('#3d7aed', '#ff63c3')}                fontFamily='Space Mono'
+                fontWeight="bold"
+                mr={3}
+                display="inline"
+              >
+                
+            </Text>
+          </Link> */}
+          <Link
+            target="_blank"
+            href="https://github.com/joaofam/joaopereira.ie/tree/main/joaopereira.ie"
+            path={path}
+            display="inline-flex"
+            alignItems="center"
+            style={{ gap: 4 }}
+            pl={2}
+            sx={{ fontFamily: 'Space Mono'}}
+          >
+            <Text
+              color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+              fontFamily='Space Mono, monospace'
+              fontWeight="bold"
+              ml={3}
+              letterSpacing={1}
+              display="inline"
+              textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+              fontSize={14}
+            >
+            SOURCE
+            </Text>
+              <Text
+                color={useColorModeValue('#3d7aed', '#ff63c3')}                fontFamily='Space Mono'
+                fontWeight="bold"
+                mr={3}
+                display="inline"
+              >
+                {"/>"}
+            </Text>
+          </Link>
         </Stack>
 
         <Box flex={1} align="right" >
