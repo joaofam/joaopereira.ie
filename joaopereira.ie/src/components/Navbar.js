@@ -13,7 +13,7 @@ import {
   MenuList,
   MenuButton,
   IconButton,
-  useColorModeValue
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
@@ -99,7 +99,7 @@ const Navbar = props => {
           </LinkItem>
         </Stack>
 
-        <Box flex={1} align="right">
+        <Box flex={1} align="right" >
           <ThemeToggleButton />
 
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
@@ -110,22 +110,19 @@ const Navbar = props => {
                 variant="outline"
                 aria-label="Options"
               />
-              <MenuList>
-                {/* <MenuItem as={MenuLink} href="/">
+              <MenuList backgroundColor="rgba(255, 255, 255, 0.06)">
+                <MenuItem 
+                  as={MenuLink} 
+                  href="/" 
+                  backgroundColor="rgba(255, 255, 255, 0)" color="white"
+                >
                   About
                 </MenuItem>
-                <MenuItem as={MenuLink} href="/works">
-                  Works
-                </MenuItem>
-                <MenuItem as={MenuLink} href="/posts">
-                  Posts
-                </MenuItem>
-                <MenuItem as={MenuLink} href="https://uses.craftz.dog/">
-                  Interests
-                </MenuItem> */}
                 <MenuItem
                   as={Link}
                   href="https://github.com/joaofam/joaopereira.ie/tree/main/joaopereira.ie"
+                  backgroundColor="rgba(255, 255, 255, 0.0)"
+                  color="white"
                 >
                   View Source
                 </MenuItem>
