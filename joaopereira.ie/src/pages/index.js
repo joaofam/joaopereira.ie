@@ -263,9 +263,19 @@ const Page = () => {
   const onScreen = useOnScreen(ref);
 
   const settings = {
-    // dots: true,
     infinite: true,
     slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    arrows: false
+  };
+
+  const settingsMobile = {
+    infinite: true,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
@@ -1097,6 +1107,7 @@ const Page = () => {
             <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="800">
               <Heading p={{ base: "15", md: "10" }} fontSize={{ base: "24px", md: "28px" }}>Technologies</Heading>
             </div>
+            {isDesktop ? (
             <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1000">
               <Flex justify="center" pt={5}>
                 <Box
@@ -1145,6 +1156,56 @@ const Page = () => {
                 </Box>
               </Flex>
             </div>
+            ) : (
+              <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1000">
+              <Flex justify="center" pt={5}>
+                <Box
+                  position="relative"
+                  width="80%"
+                  height="100%"
+                >
+                  <Slider {...settingsMobile}>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faPython} style={{ color: "#2B5B84" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faNodeJs} style={{ color: "#68A063" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faReact} style={{ color: "#61DAFB" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faJs} style={{ color: "#F7DF1E" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faHtml5} style={{ color: "#E34C26" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faCss3Alt} style={{ color: "#1572B6" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faGithub} style={{ color: "#181717" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faGitlab} style={{ color: "#FCA326" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faAws} style={{ color: "#232F3E" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faDocker} style={{ color: "#2496ED" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faJenkins} style={{ color: "#D24939" }} />
+                    </div>
+                    <div>
+                      <FontAwesomeIcon size="3x" icon={faLinux} style={{ color: "#FCC624" }} />
+                    </div>
+                  </Slider>
+                </Box>
+              </Flex>
+            </div>
+            )}
 
             <div data-aos="zoom-in-left" data-aos-duration="2000">
               <Text
