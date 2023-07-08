@@ -383,7 +383,7 @@ const Page = () => {
       zIndex="-1"
       // backgroundAttachment="fixed"
     >
-      <Container position="relative" height="100%" width={{base: "40ch", md: "120ch"}} maxW="120ch">
+      <Container position="relative" height="100%" width={{base: "37ch", md: "120ch"}} maxW="120ch">
         <Box height="100%">
           <Container position="relative">
             <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
@@ -408,7 +408,7 @@ const Page = () => {
                       <Icon icon={faGithub} color={githubIconColor} />
                     </a>
                     <a href="https://www.linkedin.com/in/joao-joao/" target="_blank" rel="noopener noreferrer">
-                      <Icon icon={faLinkedin} color="0077B5"/>
+                      <Icon icon={faLinkedin} color="#0077B5"/>
                     </a>
                     <a href="joaopereira2213@gmail.com" target="_blank" rel="noopener noreferrer">
                       <Icon icon={faGoogle} color="#c71610" />
