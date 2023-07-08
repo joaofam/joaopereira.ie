@@ -241,17 +241,16 @@ const Page = () => {
   const { colorMode } = useColorMode();
 
   const backgroundImage =
-    colorMode === 'light' ? '/assets/light-layered-waves-haikei.svg' : '/assets/dark-layered-waves-haikei.svg';
+    colorMode === 'light' ? '/assets/blob-haikei.svg' : '/assets/dark-layered-waves-haikei.svg';
 
   const githubIconColor = colorMode === 'light' ? 'black' : 'white';
   const listItem = colorMode === 'light' ? 'black' : 'white';
   const textColor = colorMode === 'light' ? '#3d7aed' : '#ff63c3';
-  const aboutMe = colorMode === 'light' ? '#ffffff' : '#ff63c3';
+  const aboutMe = colorMode === 'light' ? '#3d7aed' : '#ff63c3';
   const helloWorldOpacity = colorMode === 'light' ? '0.8' : '0.1';
   const TheWell = colorMode === 'light' ? '/assets/TheWellLight.png' : '/assets/TheWellDark-no-bg.png';
   const UO = colorMode === 'light' ? '/assets/UOLight.png' : '/assets/UO.png';
   const TheAcademy = colorMode === 'light' ?  '/assets/AcademyLight.png' : '/assets/Academy-no-bg.png';
-  const linkedinColor = colorMode === 'light' ? 'white' : '#0072b1';
 
   const zoomIn = keyframes`
     from {transform: scale(1);}
@@ -362,7 +361,7 @@ const Page = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 2000, // Animation duration in milliseconds
+      duration: 2000,
       once: true, // Only animate elements once
     });
   }, []);
@@ -384,15 +383,15 @@ const Page = () => {
       zIndex="-1"
       // backgroundAttachment="fixed"
     >
-      {/* <Container position="relative" height="100%" width="120ch" maxW="120ch"> */}
+      <Container position="relative" height="100%" width={{base: "40ch", md: "120ch"}} maxW="120ch">
         <Box height="100%">
           <Container position="relative">
             <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
               <Box textAlign="left" paddingLeft="20px" marginTop="-20px" whiteSpace="nowrap">
-                <Heading color="white" textTransform="uppercase" as="h2" variant="page-title" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}  mb={4}>
+                <Heading letterSpacing={3} color={listItem} textTransform="uppercase" as="h2" variant="page-title" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}  mb={4}>
                   João Pereira
                 </Heading>
-                <Text fontSize={fontSize} color="white">
+                <Text fontSize={fontSize} color={listItem}>
                   <Typewriter
                     words={["Software Developer", "Full Stack Developer", "Cloud Infastructure Developer"]}
                     loop
@@ -409,7 +408,7 @@ const Page = () => {
                       <Icon icon={faGithub} color={githubIconColor} />
                     </a>
                     <a href="https://www.linkedin.com/in/joao-joao/" target="_blank" rel="noopener noreferrer">
-                      <Icon icon={faLinkedin} color={linkedinColor} />
+                      <Icon icon={faLinkedin} color="0077B5"/>
                     </a>
                     <a href="joaopereira2213@gmail.com" target="_blank" rel="noopener noreferrer">
                       <Icon icon={faGoogle} color="#c71610" />
@@ -551,7 +550,7 @@ const Page = () => {
                   <div data-aos="fade-up" data-aos-duration="4000" data-aos-delay="1000">
                     <Heading fontSize={{ base: "20px", md: "28px" }}> Name</Heading>
                     <Text fontSize={{ base: "12px", md: "16px" }}>Joao Pereira</Text>
-                    <Text fontSize={{ base: "12px", md: "16px" }}>(Pronouned Joo-ow)</Text>
+                    <Text fontSize={{ base: "12px", md: "16px" }}>(Pronounced Joo-ow)</Text>
                   </div>
                 </Box>
                 <Box>
@@ -2033,7 +2032,7 @@ const Page = () => {
             py={2}
             textAlign="center"
           >
-          <Text pb={2}>
+          <Text fontSize={{base: "14px", md: "16px"}} pb={2}>
             @ 2023 João Pereira. All rights reserved.
           </Text>
           <Tag>
@@ -2045,7 +2044,7 @@ const Page = () => {
 
           
     </Box>      
-  {/* </Container> */}
+  </Container>
 </Box>
 </>
 );};
