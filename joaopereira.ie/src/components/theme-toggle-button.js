@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { IconButton, useColorMode, useColorModeValue } from '@chakra-ui/react'
-import { SunIcon, MoonIcon } from '@chakra-ui/icons'
+import Image from 'next/image';
 
 const ThemeToggleButton = () => {
   const { toggleColorMode } = useColorMode()
@@ -17,8 +17,13 @@ const ThemeToggleButton = () => {
       >
         <IconButton
           aria-label="Toggle theme"
-          colorScheme={useColorModeValue('purple', 'orange')}
-          icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
+          // colorScheme={useColorModeValue('purple', 'orange')}
+          icon={
+            useColorModeValue(
+              <Image src="/assets/disco-ball.png" width={25} height={25} alt="MoonIcon" boxSize="2em" />,
+              <Image src="/assets/sunrise.png" width={25} height={25} alt="SunIcon" boxSize="2em" />
+            )
+          }
           onClick={toggleColorMode}
         ></IconButton>
       </motion.div>

@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import NextLink from 'next/link'
+import Image from 'next/image';
 import Logo from './Logo'
 import {
   Container,
@@ -14,7 +15,8 @@ import {
   MenuButton,
   IconButton,
   useColorModeValue,
-  Text
+  Text,
+  useColorMode,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
@@ -45,6 +47,10 @@ const MenuLink = forwardRef((props, ref) => (
 
 const Navbar = props => {
   const { path } = props
+
+  const { colorMode } = useColorMode();
+
+  const menuIcon = colorMode === 'light' ? "/assets/abstractMenu2.png" : "/assets/abstractMenu3-dark.png";
 
   return (
     <Box
@@ -132,7 +138,8 @@ const Navbar = props => {
             SOURCE
             </Text>
               <Text
-                color={useColorModeValue('#3d7aed', '#ff63c3')}                fontFamily='Space Mono'
+                color={useColorModeValue('#3d7aed', '#ff63c3')}                
+                fontFamily='Space Mono'
                 fontWeight="bold"
                 mr={3}
                 display="inline"
@@ -149,25 +156,75 @@ const Navbar = props => {
             <Menu isLazy id="navbar-menu">
               <MenuButton
                 as={IconButton}
-                icon={<HamburgerIcon />}
                 variant="outline"
                 aria-label="Options"
-              />
-              <MenuList backgroundColor="rgba(255, 255, 255, 0.06)">
-                <MenuItem 
+                borderColor={
+                  useColorModeValue('rgba(0, 0, 0, 0.12)', 'rgba(255, 255, 255, 0.12)')
+                }              >
+                <Box display="flex" alignItems="center" justifyContent="center">
+                  <Image position="absolute" width={25} height={25} src={menuIcon} alt="Menu Icon" />
+                </Box>
+              </MenuButton>
+
+              <MenuList 
+                backgroundColor="rgba(255, 255, 255, 0.06)" backdropFilter= "blur(20px)"
+                border= "1px solid rgba(255, 255, 255, 0.1)"
+                boxShadow= "20px 20px 22px rgba(0, 0, 0, 0.2)"
+                borderRadius= "10px">
+                {/* <MenuItem 
                   as={MenuLink} 
                   href="/" 
-                  backgroundColor="rgba(255, 255, 255, 0)" color="white"
+                  backgroundColor="rgba(255, 255, 255, 0)" color={useColorModeValue('black', 'white')}
                 >
-                  About
-                </MenuItem>
+                  <Text
+                    color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+                    fontFamily='Space Mono, monospace'
+                    fontWeight="bold"
+                    ml={3}
+                    letterSpacing={1}
+                    display="inline"
+                    textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+                    fontSize={14}
+                  >
+                  ABOUT
+                  </Text>
+                    <Text
+                      color={useColorModeValue('#3d7aed', '#ff63c3')}                
+                      fontFamily='Space Mono'
+                      fontWeight="bold"
+                      mr={3}
+                      display="inline"
+                    >
+                    .
+                  </Text>
+                </MenuItem> */}
                 <MenuItem
                   as={Link}
                   href="https://github.com/joaofam/joaopereira.ie/tree/main/joaopereira.ie"
                   backgroundColor="rgba(255, 255, 255, 0.0)"
-                  color="white"
+                  color={useColorModeValue('black', 'white')}
                 >
-                  View Source
+                  <Text
+                    color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+                    fontFamily='Space Mono, monospace'
+                    fontWeight="bold"
+                    ml={3}
+                    letterSpacing={1}
+                    display="inline"
+                    textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+                    fontSize={14}
+                  >
+                  SOURCE
+                  </Text>
+                    <Text
+                      color={useColorModeValue('#3d7aed', '#ff63c3')}                
+                      fontFamily='Space Mono'
+                      fontWeight="bold"
+                      mr={3}
+                      display="inline"
+                    >
+                    {"/>"}
+                  </Text>
                 </MenuItem>
               </MenuList>
             </Menu>
