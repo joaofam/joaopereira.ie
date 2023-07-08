@@ -35,7 +35,7 @@ const Logo = () => {
             ml={3}
             letterSpacing={1}
             display="inline"
-            textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+            textShadow="2px 2px 4px rgba(0, 0, 0, 0.3)"
           >
             JOAO PEREIRA
           </Text>
