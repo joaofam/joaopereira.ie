@@ -17,10 +17,33 @@ import {
   useColorModeValue,
   Text,
   useColorMode,
+  MenuDivider
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
-import { IoLogoGithub } from 'react-icons/io5'
+import { 
+  faJava, 
+  faPython, 
+  faReact, 
+  faGitlab, 
+  faJs,
+  faHtml5,
+  faCss3Alt,
+  faAws,
+  faLinux,
+  faJenkins,
+  faSelenium,
+  faJira,
+  faGithub,
+  faLinkedin,
+  faGoogle,
+  faUbuntu,
+  faNodeJs,
+  faWhatsapp,
+  faDocker,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ArrowCurveDownRight } from '@styled-icons/fluentui-system-filled/ArrowCurveDownRight';
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href
@@ -50,6 +73,7 @@ const Navbar = props => {
 
   const { colorMode } = useColorMode();
 
+  const listItem = colorMode === 'light' ? 'black' : 'white';
   const menuIcon = colorMode === 'light' ? "/assets/abstractMenu2.png" : "/assets/abstractMenu3-dark.png";
 
   return (
@@ -84,37 +108,113 @@ const Navbar = props => {
           flexGrow={1}
           mt={{ base: 4, md: 3 }}
         >
-          {/* <Link
-            target="_blank"
-            href="https://github.com/joaofam/joaopereira.ie/tree/main/joaopereira.ie"
-            path={path}
-            display="inline-flex"
-            alignItems="center"
-            style={{ gap: 4 }}
-            pl={2}
-            sx={{ fontFamily: 'Space Mono'}}
-          >
-            <Text
-              color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-              fontFamily='Space Mono, monospace'
-              fontWeight="bold"
-              ml={3}
-              letterSpacing={1}
-              display="inline"
-              textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
-              fontSize={14}
+          {/* <LinkItem href="/about" path={path}>
+            <Link
+              href="/about"
+              path={path}
+              display="inline-flex"
+              alignItems="center"
+              style={{ gap: 4 }}
+              pl={2}
+              sx={{ fontFamily: 'Space Mono'}}
             >
-            ABOUT
-            </Text>
               <Text
-                color={useColorModeValue('#3d7aed', '#ff63c3')}                fontFamily='Space Mono'
+                color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+                fontFamily='Space Mono, monospace'
                 fontWeight="bold"
-                mr={3}
+                ml={3}
+                letterSpacing={1}
                 display="inline"
+                textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+                fontSize={14}
               >
+              ABOUT
+              </Text>
+                <Text
+                  color={useColorModeValue('#3d7aed', '#ff63c3')}                fontFamily='Space Mono'
+                  fontWeight="bold"
+                  mr={3}
+                  display="inline"
+                >
                 
-            </Text>
-          </Link> */}
+              </Text>
+            </Link>
+          </LinkItem> */}
+            <Menu>
+              <MenuButton>
+                <Text
+                  color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+                  fontFamily='Space Mono, monospace'
+                  fontWeight="bold"
+                  ml={3}
+                  letterSpacing={1}
+                  display="inline"
+                  textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+                  fontSize={14}
+                  pr="2px"
+                >
+                  CONTACTS
+                </Text>
+                <Text
+                  color={useColorModeValue('#3d7aed', '#ff63c3')}                fontFamily='Space Mono'
+                  fontWeight="bold"
+                  mr={3}
+                  display="inline"
+                >
+                  <ArrowCurveDownRight size="14" />
+                </Text>
+              </MenuButton>
+              <MenuList
+                sx={{
+                    backgroundColor: "rgba(255, 255, 255, 0.06)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    boxShadow: "20px 20px 22px rgba(0, 0, 0, 0.2)",
+                    borderRadius: "10px",
+                    color: "white",
+                  }}>
+                <MenuItem
+                  href="https://github.com/joaofam"
+                  target="_blank"
+                  icon={<FontAwesomeIcon size="1x" icon={faGithub} style={{ color: listItem }} />}
+                  color={listItem}
+                  sx={{
+                    backgroundColor: "rgba(255, 255, 255, 0.06)",
+                  }}>
+                  Github
+                </MenuItem>
+                <MenuItem
+                  href="https://www.linkedin.com/in/joao-joao"
+                  target="_blank"
+                  icon={<FontAwesomeIcon size="1x" icon={faLinkedin} style={{ color: listItem }} />}
+                  color={listItem}
+                  sx={{
+                    backgroundColor: "rgba(255, 255, 255, 0.06)",
+                  }}>
+                  LinkedIn
+                </MenuItem>
+                <MenuItem
+                  href="mailto:joao@joaopereira.ie"
+                  target="_blank"
+                  icon={<FontAwesomeIcon size="1x" icon={faGoogle} style={{ color: listItem }} />}
+                  color={listItem}
+                  sx={{
+                    backgroundColor: "rgba(255, 255, 255, 0.06)",
+                  }}>
+                  joao@joaopereira.ie
+                </MenuItem>
+                <MenuItem
+                  href="https://wa.me/353833294067"
+                  target="_blank"
+                  icon={<FontAwesomeIcon size="1x" icon={faWhatsapp} style={{ color: listItem }} />}
+                  color={listItem}
+                  sx={{
+                    backgroundColor: "rgba(255, 255, 255, 0.06)",
+                  }}>
+                  +353 83 123 4567
+                </MenuItem>
+              </MenuList>
+            </Menu>
           <Link
             target="_blank"
             href="https://github.com/joaofam/joaopereira.ie/tree/main/joaopereira.ie"
@@ -173,7 +273,7 @@ const Navbar = props => {
                 borderRadius= "10px">
                 {/* <MenuItem 
                   as={MenuLink} 
-                  href="/" 
+                  href="/about" 
                   backgroundColor="rgba(255, 255, 255, 0)" color={useColorModeValue('black', 'white')}
                 >
                   <Text
