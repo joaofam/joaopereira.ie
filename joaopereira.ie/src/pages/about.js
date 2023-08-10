@@ -153,6 +153,31 @@ const about = () => {
       return () => clearInterval(interval);
     }, []);
 
+    const handleDownload = () => {
+        const fileUrl = '/assets/Joao-Pereira-Resume.pdf';
+    
+        // Create a temporary link element
+        const link = document.createElement("a");
+        link.href = fileUrl;
+        link.setAttribute("download", "resume.pdf");
+    
+        // Append the link to the document body
+        document.body.appendChild(link);
+    
+        // Trigger the download
+        link.click();
+    
+        // Remove the link from the document body
+        document.body.removeChild(link);
+    };
+    
+    useEffect(() => {
+    AOS.init({
+        duration: 2000,
+        once: true, // Only animate elements once
+    });
+    }, []);
+
     return (
         <Box
             bgImage={`url('${backgroundImage}')`}
@@ -267,7 +292,7 @@ const about = () => {
                                 _active={{ bg: "transparent", borderColor: aboutMe, color: aboutMe }}
                                 _focus={{ boxShadow: "none" }}
                                 variant="outline"
-                                // onClick={handleDownload}
+                                onClick={handleDownload}
                             >
                                 Resume
                             </Button>
