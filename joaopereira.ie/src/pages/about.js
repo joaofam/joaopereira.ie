@@ -3,67 +3,22 @@ import { useState, useEffect, useRef } from "react";
 
 // Chakra UI imports
 import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   Box,
   Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
   Center,
-  chakra,
-  CloseButton,
-  Collapse,
   Container,
   Divider,
   Flex,
-  FormControl,
-  FormLabel,
   Grid,
-  GridItem,
   Heading,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Link,
-  LinkBox,
-  LinkOverlay,
-  ListItem,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
   SimpleGrid,
-  SlideFade,
-  Stack,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-  Tag,
   Text,
-  Textarea,
-  UnorderedList,
   useColorMode,
-  useDisclosure,
-  extendTheme,
   useBreakpointValue,
-  useMediaQuery
 } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
 
 // Framer Motion imports
 import { motion } from "framer-motion";
-
-// MUI imports
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 // Next.js imports
 import Image from "next/image";
@@ -71,51 +26,21 @@ import Image from "next/image";
 // Font Awesome imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { 
-  faJava, 
-  faPython, 
-  faReact, 
-  faGitlab, 
-  faJs,
-  faHtml5,
-  faCss3Alt,
-  faAws,
-  faLinux,
-  faJenkins,
-  faSelenium,
-  faJira,
-  faGithub,
-  faLinkedin,
-  faGoogle,
-  faUbuntu,
-  faNodeJs,
-  faWhatsapp,
-  faDocker,
-} from '@fortawesome/free-brands-svg-icons';
-import { 
-  faUser,
-  faEnvelope,
-  faMapPin,
+
+import {
   faArrowDown,
 } from '@fortawesome/free-solid-svg-icons';
 
 // Third-party imports
 import AOS from "aos";
 import "aos/dist/aos.css";
-import emailjs, { init } from "emailjs-com";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useForm } from "react-hook-form";
-import { Link as ScrollLink } from "react-scroll";
 import { Typewriter } from "react-simple-typewriter";
-import { keyframes } from "@chakra-ui/react";
 
 
 const Icon = ({ icon, color }) => {
-
     const fontSize = useBreakpointValue({ base: "1.5em", md: "2em" });
-  
     return (
       <motion.div whileHover={{ scale: 1.3 }} style={{ cursor: "pointer", color, paddingRight: "20px" }}>
         <Box fontSize={fontSize}>
@@ -126,15 +51,10 @@ const Icon = ({ icon, color }) => {
   };
 
 const about = () => {
-
-    const fontSize = useBreakpointValue({ base: 15, md: 23 });
-    const fontSizeHeading = useBreakpointValue({ base: 32, md: 38 });
-    const fontSizeHeadingNo = useBreakpointValue({ base: 24, md: 28 });
     
     const { colorMode } = useColorMode();
 
     const listItem = colorMode === 'light' ? 'black' : 'white';
-    const githubIconColor = colorMode === 'light' ? 'black' : 'white';
     const aboutMe = colorMode === 'light' ? '#3d7aed' : '#ff63c3';
     const headingColor = colorMode === 'light' ? '#3d7aed' : '#ff63c3';
 
