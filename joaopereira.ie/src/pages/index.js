@@ -251,6 +251,7 @@ const Page = () => {
   const TheWell = colorMode === 'light' ? '/assets/TheWellLight.png' : '/assets/TheWellDark-no-bg.png';
   const UO = colorMode === 'light' ? '/assets/UOLight.png' : '/assets/UO.png';
   const TheAcademy = colorMode === 'light' ?  '/assets/AcademyLight.png' : '/assets/Academy-no-bg.png';
+  const headingColor = colorMode === 'light' ? '#3d7aed' : '#ff63c3';
 
   const zoomIn = keyframes`
     from {transform: scale(1);}
@@ -398,10 +399,51 @@ const Page = () => {
           <Container position="relative">
             <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
               <Box textAlign="left" paddingLeft="20px" marginTop="-20px" whiteSpace="nowrap">
-                <Heading letterSpacing={3} color={listItem} textTransform="uppercase" as="h2" variant="page-title" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}  mb={4}>
-                  João Pereira
-                </Heading>
-                  <Text fontSize={fontSize} color={listItem}>
+                <Flex>
+                  <Heading
+                    fontFamily="Space Mono"
+                    letterSpacing={{ base: "10px", md: "20px" }}
+                    color={headingColor}
+                    textTransform="uppercase"
+                    as="h1"
+                    variant="page-title"
+                    fontSize={{ base: "30px", md: "100px" }}
+                    mb={4}
+                  >
+                    JOAO
+                  </Heading>
+                  <Heading
+                      fontFamily="Space Mono"
+                      color={listItem}
+                      textTransform="uppercase"
+                      as="h1"
+                      variant="page-title"
+                      fontSize={{ base: "30px", md: "100px" }}
+                      mb={4}
+                  >
+                    <Typewriter
+                        words={["_"]}
+                        loop
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={500}
+                        deleteSpeed={1000}
+                        delaySpeed={2000}
+                    />
+                  </Heading>
+                  <Heading
+                      letterSpacing={{ base: "10px", md: "20px" }}
+                      color={headingColor}
+                      textTransform="uppercase"
+                      as="h1"
+                      variant="page-title"
+                      fontSize={{ base: "30px", md: "100px" }}
+                      mb={4}
+                  >
+                    PEREIRA
+                  </Heading>
+                </Flex>
+                  <Text fontFamily="Space mono" fontSize={fontSize} color={listItem}>
                     <Typewriter
                       words={["Software Developer", "Full Stack Developer", "Cloud Infastructure Developer"]}
                       loop
@@ -418,10 +460,10 @@ const Page = () => {
                       <Icon icon={faGithub} color={githubIconColor} />
                     </a>
                     <a href="https://www.linkedin.com/in/joao-joao/" target="_blank" rel="noopener noreferrer">
-                      <Icon icon={faLinkedin} color="#0077B5"/>
+                      <Icon icon={faLinkedin} />
                     </a>
                     <a href="joaopereira2213@gmail.com" target="_blank" rel="noopener noreferrer">
-                      <Icon icon={faGoogle} color="#c71610" />
+                      <Icon icon={faGoogle}  />
                     </a>
                     <Center height="50px">
                       <Divider orientation="vertical" />
@@ -455,42 +497,6 @@ const Page = () => {
                     </Center>
                   <Flex flex="1" />
                   </Flex>
-                </Box>
-              </Box>
-              <Box
-                flexShrink={0}
-                mt={{ base: 4, md: 0 }}
-                ml={{ md: 6 }}
-                textAlign="center"
-              >
-                <Box
-                  borderColor="transparent"
-                  borderWidth={2}
-                  borderStyle="solid"
-                  w={{ base: "100px", md: "150px", lg: "200px" }}
-                  h={{ base: "100px", md: "150px", lg: "200px" }}
-                  display="inline-block"
-                  borderRadius="full"
-                  overflow="hidden"
-                >
-                  <Box
-                    position="relative"
-                    w={{ base: "100px", md: "150px", lg: "200px" }}
-                    h={{ base: "100px", md: "150px", lg: "200px" }}
-                    >
-                  <motion.img
-                    key={images[currentIndex]}
-                    src={images[currentIndex]}
-                    alt="Profile image"
-                    borderRadius="full"
-                    width="100%"
-                    height="100%"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 50 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                  </Box>
                 </Box>
               </Box>
             </Box>
