@@ -33,6 +33,7 @@ const components = {
   Text: {
     baseStyle: props => ({
       color: mode('black', 'white')(props),
+      fontFamlily: 'Space Mono',
     }),
   },
 
@@ -84,7 +85,7 @@ const components = {
 };
 
 const fonts = {
-    body: "'Source Code Pro', sans-serif",
+    body: "'Space Mono', monospace",
     heading: "'Space Mono'",
 }
 
