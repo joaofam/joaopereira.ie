@@ -120,7 +120,7 @@ const about = () => {
                         <Flex>
                             <Heading
                                 fontFamily="Space Mono"
-                                letterSpacing={20}
+                                letterSpacing={{ base: "10px", md: "20px" }}
                                 color={headingColor}
                                 textTransform="uppercase"
                                 as="h1"
@@ -150,7 +150,7 @@ const about = () => {
                                 />
                             </Heading>
                             <Heading
-                                letterSpacing={20}
+                                letterSpacing={{ base: "10px", md: "20px" }}
                                 color={headingColor}
                                 textTransform="uppercase"
                                 as="h1"
@@ -169,8 +169,8 @@ const about = () => {
                 </Container>
 
                 <Box pb={75}>
-                    <Text pb={10} color={headingColor} fontSize={{ base: '16px', md: '34px' }} fontFamily="Space Mono">More About Me <Divider/> </Text>
-                    <Grid templateColumns="1fr 1fr" gap={6}>
+                    <Text pb={10} color={headingColor} fontSize={{ base: '24px', md: '34px' }} fontFamily="Space Mono">More About Me <Divider/> </Text>
+                    <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} templateRows={{ base: "1fr 1fr", md: "auto" }} gap={6}>
                         <Image src='/assets/pawnshop.jpg' width={1000} height={1000} />
                         <Box>
                             <Text fontSize={{ base: '16px', md: '20px' }} >  
@@ -221,8 +221,8 @@ const about = () => {
                 </Box>
 
                 <Box pb={75}>
-                    <Text pt={20} color={headingColor} fontSize={{ base: '16px', md: '34px' }} fontFamily="Space Mono">Skills & Interests <Divider/></Text>
-                    <Text pt={10} color={headingColor} fontSize={{ base: '12px', md: '28px' }} fontFamily="Space Mono">Technologies</Text>
+                    <Text pt={20} color={headingColor} fontSize={{ base: '24px', md: '34px' }} fontFamily="Space Mono">Skills & Interests <Divider/></Text>
+                    <Text pt={10} color={headingColor} fontSize={{ base: '20px', md: '28px' }} fontFamily="Space Mono">Technologies</Text>
                     <Divider pt={2} mb={5} orientation="horizontal" />
                     <SimpleGrid columns={{ base: 2, md: 8 }} spacing={10}>
                         <Box textAlign="center">
@@ -338,7 +338,7 @@ const about = () => {
                     </SimpleGrid>
 
 
-                    <Text pt={5} textAlign="right" color={headingColor} fontSize={{ base: '12px', md: '28px' }} fontFamily="Space Mono">AWS</Text>
+                    <Text pt={5} textAlign="right" color={headingColor} fontSize={{ base: '20px', md: '28px' }} fontFamily="Space Mono">AWS</Text>
                     <Divider pt={2} mb={5} orientation="horizontal" />
                     <SimpleGrid columns={{ base: 2, md: 8 }} spacing={10}>
                         <Box textAlign="center">
@@ -453,7 +453,7 @@ const about = () => {
                         </Box>
                     </SimpleGrid>
 
-                    <Text pt={5} color={headingColor} fontSize={{ base: '12px', md: '28px' }} fontFamily="Space Mono">Interests</Text>
+                    <Text pt={5} color={headingColor} fontSize={{ base: '20px', md: '28px' }} fontFamily="Space Mono">Interests</Text>
                     <Divider pt={2} mb={5} orientation="horizontal" />
                     <SimpleGrid columns={{ base: 2, md: 8 }} spacing={10}>
                         <Box textAlign="center">
@@ -537,7 +537,6 @@ const about = () => {
                             </Flex>
                         </Box>
                     </SimpleGrid>
-
                 </Box>
             </Box>
         </Container>
