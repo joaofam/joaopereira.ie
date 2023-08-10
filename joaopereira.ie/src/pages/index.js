@@ -401,17 +401,17 @@ const Page = () => {
                 <Heading letterSpacing={3} color={listItem} textTransform="uppercase" as="h2" variant="page-title" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}  mb={4}>
                   João Pereira
                 </Heading>
-                <Text fontSize={fontSize} color={listItem}>
-                  <Typewriter
-                    words={["Software Developer", "Full Stack Developer", "Cloud Infastructure Developer"]}
-                    loop
-                    cursor
-                    cursorStyle="|"
-                    typeSpeed={75}
-                    deleteSpeed={50}
-                    delaySpeed={1000}
-                  />
-                </Text>
+                  <Text fontSize={fontSize} color={listItem}>
+                    <Typewriter
+                      words={["Software Developer", "Full Stack Developer", "Cloud Infastructure Developer"]}
+                      loop
+                      cursor
+                      cursorStyle="|"
+                      typeSpeed={75}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                    />
+                  </Text>
                 <Box marginTop="20px">
                   <Flex alignItems="center">
                     <a href="https://github.com/joaofam" target="_blank" rel="noopener noreferrer">
