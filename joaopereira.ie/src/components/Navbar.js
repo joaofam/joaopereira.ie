@@ -54,8 +54,9 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
       href={href}
       scroll={false}
       p={2}
-      bg={active ? 'grassTeal' : undefined}
-      color={active ? '#202023' : inactiveColor}
+      // bg={active ? 'grassTeal' : undefined}
+      // textDecoration={active ? 'underline' : 'none'}
+      // color={active ? 'red' : inactiveClor}
       target={target}
       {...props}
     >
@@ -108,7 +109,7 @@ const Navbar = props => {
           flexGrow={1}
           mt={{ base: 4, md: 3 }}
         >
-          {/* <LinkItem href="/about" path={path}>
+          <LinkItem href="/about" path={path}>
             <Link
               href="/about"
               path={path}
@@ -139,7 +140,7 @@ const Navbar = props => {
                 
               </Text>
             </Link>
-          </LinkItem> */}
+          </LinkItem>
             <Menu>
               <MenuButton>
                 <Text
@@ -156,7 +157,8 @@ const Navbar = props => {
                   CONTACTS
                 </Text>
                 <Text
-                  color={useColorModeValue('#3d7aed', '#ff63c3')}                fontFamily='Space Mono'
+                  color={useColorModeValue('#3d7aed', '#ff63c3')}
+                  fontFamily='Space Mono'
                   fontWeight="bold"
                   mr={3}
                   display="inline"
@@ -174,6 +176,7 @@ const Navbar = props => {
                     color: "white",
                   }}>
                 <MenuItem
+                  fontFamily={'Space Mono'}
                   href="https://github.com/joaofam"
                   target="_blank"
                   icon={<FontAwesomeIcon size="1x" icon={faGithub} style={{ color: listItem }} />}
@@ -184,6 +187,7 @@ const Navbar = props => {
                   Github
                 </MenuItem>
                 <MenuItem
+                  fontFamily={'Space Mono'}
                   href="https://www.linkedin.com/in/joao-joao"
                   target="_blank"
                   icon={<FontAwesomeIcon size="1x" icon={faLinkedin} style={{ color: listItem }} />}
@@ -194,6 +198,7 @@ const Navbar = props => {
                   LinkedIn
                 </MenuItem>
                 <MenuItem
+                  fontFamily={'Space Mono'}
                   href="mailto:joao@joaopereira.ie"
                   target="_blank"
                   icon={<FontAwesomeIcon size="1x" icon={faGoogle} style={{ color: listItem }} />}
@@ -204,6 +209,7 @@ const Navbar = props => {
                   joao@joaopereira.ie
                 </MenuItem>
                 <MenuItem
+                  fontFamily={'Space Mono'}
                   href="https://wa.me/353833294067"
                   target="_blank"
                   icon={<FontAwesomeIcon size="1x" icon={faWhatsapp} style={{ color: listItem }} />}
@@ -211,7 +217,7 @@ const Navbar = props => {
                   sx={{
                     backgroundColor: "rgba(255, 255, 255, 0.06)",
                   }}>
-                  +353 83 123 4567
+                  +353 (83) 329 4067
                 </MenuItem>
               </MenuList>
             </Menu>
@@ -271,7 +277,7 @@ const Navbar = props => {
                 border= "1px solid rgba(255, 255, 255, 0.1)"
                 boxShadow= "20px 20px 22px rgba(0, 0, 0, 0.2)"
                 borderRadius= "10px">
-                {/* <MenuItem 
+                <MenuItem 
                   as={MenuLink} 
                   href="/about" 
                   backgroundColor="rgba(255, 255, 255, 0)" color={useColorModeValue('black', 'white')}
@@ -297,7 +303,7 @@ const Navbar = props => {
                     >
                     .
                   </Text>
-                </MenuItem> */}
+                </MenuItem>
                 <MenuItem
                   as={Link}
                   href="https://github.com/joaofam/joaopereira.ie/tree/main/joaopereira.ie"
