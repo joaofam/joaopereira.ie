@@ -38,6 +38,7 @@
     "react": "^18.2.0",
     "react-aos": "^1.0.1",
     "react-dom": "18.2.0",
+    "react-globe": "^5.0.2",
     "react-hook-form": "^7.45.0",
     "react-icons": "^4.9.0",
     "react-intersection-observer": "^9.4.4",
