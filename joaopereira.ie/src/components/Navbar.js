@@ -118,11 +118,57 @@ const Navbar = props => {
                 <Text
                   color={useColorModeValue('#3d7aed', '#ff63c3')}                fontFamily='Space Mono'
                   fontWeight="bold"
-                  mr={3}
                   display="inline"
                 >
                 
               </Text>
+              <Text
+                  color={useColorModeValue('#3d7aed', '#ff63c3')}
+                  fontFamily='Space Mono'
+                  fontWeight="bold"
+                  display="inline"
+                >
+                  .
+                </Text>
+            </Link>
+          </LinkItem>
+          <LinkItem href="/works" path={path}>
+            <Link
+              href="/works"
+              path={path}
+              display="inline-flex"
+              alignItems="center"
+              style={{ gap: 4 }}
+              pl={2}
+              sx={{ fontFamily: 'Space Mono'}}
+            >
+              <Text
+                color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+                fontFamily='Space Mono, monospace'
+                fontWeight="bold"
+                ml={3}
+                letterSpacing={1}
+                display="inline"
+                textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+                fontSize={14}
+              >
+              WORKS
+              </Text>
+                <Text
+                  color={useColorModeValue('#3d7aed', '#ff63c3')}                fontFamily='Space Mono'
+                  fontWeight="bold"
+                  display="inline"
+                >
+                
+              </Text>
+              <Text
+                  color={useColorModeValue('#3d7aed', '#ff63c3')}
+                  fontFamily='Space Mono'
+                  fontWeight="bold" 
+                  display="inline"
+                >
+                  .
+                </Text>
             </Link>
           </LinkItem>
             <Menu>
