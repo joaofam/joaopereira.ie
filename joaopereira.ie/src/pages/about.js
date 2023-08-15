@@ -171,7 +171,9 @@ const about = () => {
                 <Box pb={75}>
                     <Text pb={10} color={headingColor} fontSize={{ base: '24px', md: '34px' }} fontFamily="Space Mono">More About Me <Divider/> </Text>
                     <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} templateRows={{ base: "1fr 1fr", md: "auto" }} gap={6}>
-                        <Image src='/assets/pawnshop.jpg' width={1000} height={1000} />
+                        <div data-aos="fade-right" data-aos-duration="2000"  >
+                            <Image src='/assets/pawnshop.jpg' width={1000} height={1000} />
+                        </div>
                         <Box>
                             <Text fontSize={{ base: '16px', md: '20px' }} >  
                                 I was born in <Text color={headingColor} display="inline">Portugal</Text> however raised in <Text color={headingColor} display="inline">Wexford</Text>,
@@ -336,6 +338,7 @@ const about = () => {
                             </Flex>
                         </Box>
                     </SimpleGrid>
+                    
 
 
                     <Text pt={5} textAlign="right" color={headingColor} fontSize={{ base: '20px', md: '28px' }} fontFamily="Space Mono">AWS</Text>
