@@ -17,30 +17,14 @@ import {
   useColorModeValue,
   Text,
   useColorMode,
-  MenuDivider
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 import { 
-  faJava, 
-  faPython, 
-  faReact, 
-  faGitlab, 
-  faJs,
-  faHtml5,
-  faCss3Alt,
-  faAws,
-  faLinux,
-  faJenkins,
-  faSelenium,
-  faJira,
   faGithub,
   faLinkedin,
   faGoogle,
-  faUbuntu,
-  faNodeJs,
   faWhatsapp,
-  faDocker,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ArrowCurveDownRight } from '@styled-icons/fluentui-system-filled/ArrowCurveDownRight';
@@ -177,6 +161,7 @@ const Navbar = props => {
                   }}>
                 <MenuItem
                   fontFamily={'Space Mono'}
+                  as="a"
                   href="https://github.com/joaofam"
                   target="_blank"
                   icon={<FontAwesomeIcon size="1x" icon={faGithub} style={{ color: listItem }} />}
@@ -188,6 +173,7 @@ const Navbar = props => {
                 </MenuItem>
                 <MenuItem
                   fontFamily={'Space Mono'}
+                  as="a"
                   href="https://www.linkedin.com/in/joao-joao"
                   target="_blank"
                   icon={<FontAwesomeIcon size="1x" icon={faLinkedin} style={{ color: listItem }} />}
@@ -199,6 +185,7 @@ const Navbar = props => {
                 </MenuItem>
                 <MenuItem
                   fontFamily={'Space Mono'}
+                  as="a"
                   href="mailto:joao@joaopereira.ie"
                   target="_blank"
                   icon={<FontAwesomeIcon size="1x" icon={faGoogle} style={{ color: listItem }} />}
@@ -210,6 +197,7 @@ const Navbar = props => {
                 </MenuItem>
                 <MenuItem
                   fontFamily={'Space Mono'}
+                  as="a"
                   href="https://wa.me/353833294067"
                   target="_blank"
                   icon={<FontAwesomeIcon size="1x" icon={faWhatsapp} style={{ color: listItem }} />}
