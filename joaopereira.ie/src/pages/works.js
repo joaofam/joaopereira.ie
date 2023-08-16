@@ -15,6 +15,21 @@ import {
   Text,
   useColorMode,
   useBreakpointValue,
+  Table,
+    TableContainer,
+    TableHead,
+    TableBody,
+    TableRow,
+    TableCell,
+    TableFooter,
+    TableCaption,
+    Tr,
+    Td,
+    Th,
+    Thead,
+    Tbody,
+    Tfoot,
+
 } from "@chakra-ui/react";
 
 // Framer Motion imports
@@ -99,20 +114,151 @@ const works = () => {
     }, []);
 
     return (
-
-                <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" height="100vh">
+        <Box
+            bgImage={`url('${backgroundImage}')`}
+            bgPosition="left top"
+            bgRepeat="repeat-y" // Change bgRepeat to 'repeat-y' for vertical repetition
+            bgSize="100% 100%"
+            height="100vh"
+            width="100vw"
+            position="absolute"
+            top="0"
+            left="0"
+            bottom="0"
+            right="0"
+            zIndex="-1"
+        >
+        <Container position="relative" height="100%" width={{base: "37ch", md: "200ch"}} maxW="300ch">
+            <Box height="100%">
+                <Container position="relative">
+                    <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" height="100vh">
+                        <Flex>
+                            <Heading
+                                fontFamily="Space Mono"
+                                letterSpacing={{ base: "10px", md: "20px" }}
+                                color={headingColor}
+                                textTransform="uppercase"
+                                as="h1"
+                                variant="page-title"
+                                fontSize={{ base: "50px", md: "100px" }}
+                                mb={4}
+                            >
+                                WORKS
+                            </Heading>
+                            <Heading
+                                fontFamily="Space Mono"
+                                color={listItem}
+                                textTransform="uppercase"
+                                as="h1"
+                                variant="page-title"
+                                fontSize={{ base: "50px", md: "100px" }}
+                                mb={4}
+                            >
+                                <Typewriter
+                                    words={["."]}
+                                    loop
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={500}
+                                    deleteSpeed={1000}
+                                    delaySpeed={2000}
+                                />
+                            </Heading>
+                        </Flex>
+                        <Box textAlign="center">
+                            <Text fontSize={{ base: '16px', md: '20px' }}>Below is a list of my current and previous works <FontAwesomeIcon size="1x" color={headingColor} fade icon={faArrowDown}/> </Text>
+                        </Box>
+                    </Box>
+                </Container>
+                <Box display="flex" flexDirection="column">
                     <Text                                 
                         letterSpacing={{ base: "10px", md: "20px" }}
-                        color={headingColor}
+                        color={listItem}
                         textTransform="uppercase"
                         as="h1"
                         variant="page-title"
                         fontSize={{ base: "25px", md: "50px" }}
-                        mb={4}>
-                        In Progess...
+                        mb={4}
+                        pb={4}
+                        >
+                        IN PROGRESS
                     </Text>
+                    <TableContainer pl={12} pb={6} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+                        <Table style={{borderCollapse:"separate", borderSpacing :"0 3em"}}>
+                            <Thead>
+                                <Tr pb={6}>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>PROJECT NAME</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>FIELD</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>REPO</Th>
+                                    <Th color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>YEAR</Th>
+                                </Tr>
+                            </Thead>
+                            <Tbody pb={32}>
+                            <Tr verticalAlign="middle">
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>PORTFOLIO WEBSITE</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>WEB DEV</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../joaopereira.ie</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2023</Td>
+                            </Tr>
+                            <Tr>
+                            <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>HOME SERVER</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>SYS ADMIN</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../bulbaserver</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2023</Td>
+                            </Tr>
+                            <Tr>
+                            <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.DOTFILES</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>SYS CONFIG</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../.dotfiles</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2022</Td>
+                            </Tr>
+                            </Tbody>
+                        </Table>
+                    </TableContainer>
                 </Box>
-
+                <Box display="flex" flexDirection="column">
+                    <Text                                 
+                        letterSpacing={{ base: "10px", md: "20px" }}
+                        color={listItem}
+                        textTransform="uppercase"
+                        as="h1"
+                        variant="page-title"
+                        fontSize={{ base: "25px", md: "50px" }}
+                        mb={4}
+                        pb={4}
+                        >
+                        PREVIOUS
+                    </Text>
+                    <TableContainer pl={12} pb={6} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+                        <Table style={{borderCollapse:"separate", borderSpacing :"0 3em"}}>
+                            <Thead>
+                                <Tr>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>PROJECT NAME</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>FIELD</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>REPO</Th>
+                                    <Th color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>YEAR</Th>
+                                </Tr>
+                            </Thead>
+                            <Tbody pb={32}>
+                            <Tr verticalAlign="middle">
+                                <Td verticalAlign="middle" color={headingColor} fontSize={{ base: "25px", md: "25px" }} style={{ display: "flex", alignItems: "center" }}>FILEFLO</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>Decentralized</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../fileflo</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2023</Td>
+                            </Tr>
+                            <Tr>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }} style={{ display: "flex", alignItems: "center" }}>VENATO</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>IOT/MOBILE</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../venato</Td>
+                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2022</Td>
+                            </Tr>
+                            </Tbody>
+                        </Table>
+                    </TableContainer>
+                </Box>
+            </Box>
+        </Container>
+        </Box>
     )
 }
 
