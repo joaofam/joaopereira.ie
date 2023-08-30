@@ -110,7 +110,6 @@ const Navbar = props => {
                 ml={3}
                 letterSpacing={1}
                 display="inline"
-                textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
                 fontSize={14}
               >
               ABOUT
@@ -149,7 +148,6 @@ const Navbar = props => {
                 ml={3}
                 letterSpacing={1}
                 display="inline"
-                textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
                 fontSize={14}
               >
               WORKS
@@ -290,7 +288,7 @@ const Navbar = props => {
         </Stack>
 
         <Box flex={1} align="right" >
-          <ThemeToggleButton />
+          <ThemeToggleButton mt={10}/>
 
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu isLazy id="navbar-menu">
