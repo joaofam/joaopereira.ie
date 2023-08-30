@@ -183,35 +183,58 @@ const works = () => {
                         >
                         IN PROGRESS
                     </Text>
-                    <TableContainer pl={12} pb={6} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+                    <TableContainer pl={100} pr={100} pb={6} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
                         <Table style={{borderCollapse:"separate", borderSpacing :"0 3em"}}>
                             <Thead>
                                 <Tr pb={6}>
-                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>PROJECT NAME</Th>
-                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>FIELD</Th>
-                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>REPO</Th>
-                                    <Th color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>YEAR</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "10px", md: "14px" }}>PROJECT NAME</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "10px", md: "14px" }}>FIELD</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "10px", md: "14px" }}>REPO</Th>
+                                    <Th color={listItem} letterSpacing={2} fontSize={{ base: "10px", md: "14px" }}>YEAR</Th>
                                 </Tr>
                             </Thead>
                             <Tbody pb={32}>
-                            <Tr verticalAlign="middle">
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>PORTFOLIO WEBSITE</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>WEB DEV</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../joaopereira.ie</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2023</Td>
-                            </Tr>
-                            <Tr>
-                            <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>HOME SERVER</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>SYS ADMIN</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../bulbaserver</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2023</Td>
-                            </Tr>
-                            <Tr>
-                            <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.DOTFILES</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>SYS CONFIG</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../.dotfiles</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2022</Td>
-                            </Tr>
+
+                                <Tr 
+                                    cursor="pointer" 
+                                    transition="all 0.4s" // descaling transition
+                                    _hover={{
+                                        transform: 'scale(1.05)', // adjust scale as needed
+                                        transition: 'all 0.3s', // smooth transition
+                                    }}
+                                >
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "36px" }}>PORTFOLIO WEBSITE</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>WEB DEV</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>.../joaopereira.ie</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>2023</Td>
+                                </Tr>
+
+                                <Tr 
+                                    cursor="pointer" 
+                                    transition="all 0.4s" // descaling transition
+                                    _hover={{
+                                        transform: 'scale(1.05)', // adjust scale as needed
+                                        transition: 'all 0.3s', // smooth transition
+                                    }}
+                                >
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "36px" }}>HOME SERVER</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>SYS ADMIN</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>.../bulbaserver</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>2023</Td>
+                                </Tr>
+                                <Tr 
+                                    cursor="pointer" 
+                                    transition="all 0.4s" // descaling transition
+                                    _hover={{
+                                        transform: 'scale(1.05)', // adjust scale as needed
+                                        transition: 'all 0.3s', // smooth transition
+                                    }}
+                                >
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "36px" }}>.DOTFILES</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>SYS CONFIG</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>.../.dotfiles</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>2022</Td>
+                                </Tr>
                             </Tbody>
                         </Table>
                     </TableContainer>
@@ -229,29 +252,41 @@ const works = () => {
                         >
                         PREVIOUS
                     </Text>
-                    <TableContainer pl={12} pb={6} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+                    <TableContainer pl={100} pr={100} pb={6} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
                         <Table style={{borderCollapse:"separate", borderSpacing :"0 3em"}}>
                             <Thead>
                                 <Tr>
-                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>PROJECT NAME</Th>
-                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>FIELD</Th>
-                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>REPO</Th>
-                                    <Th color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "18px" }}>YEAR</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "14px" }}>PROJECT NAME</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "14px" }}>FIELD</Th>
+                                    <Th width="31%" color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "14px" }}>REPO</Th>
+                                    <Th color={listItem} letterSpacing={2} fontSize={{ base: "25px", md: "14px" }}>YEAR</Th>
                                 </Tr>
                             </Thead>
                             <Tbody pb={32}>
-                            <Tr verticalAlign="middle">
-                                <Td verticalAlign="middle" color={headingColor} fontSize={{ base: "25px", md: "25px" }} style={{ display: "flex", alignItems: "center" }}>FILEFLO</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>Decentralized</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../fileflo</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2023</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }} style={{ display: "flex", alignItems: "center" }}>VENATO</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>IOT/MOBILE</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>.../venato</Td>
-                                <Td color={headingColor} fontSize={{ base: "25px", md: "25px" }}>2022</Td>
-                            </Tr>
+                                <Tr cursor="pointer" 
+                                    transition="all 0.4s" // descaling transition
+                                    _hover={{
+                                        transform: 'scale(1.05)', // adjust scale as needed
+                                        transition: 'all 0.3s', // smooth transition
+                                    }}
+                                >
+                                    <Td verticalAlign="middle" color={headingColor} fontSize={{ base: "25px", md: "36px" }} style={{ display: "flex", alignItems: "center" }}>FILEFLO</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>Decentralized</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>.../fileflo</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>2023</Td>
+                                </Tr>
+                                <Tr cursor="pointer" 
+                                    transition="all 0.4s" // descaling transition
+                                    _hover={{
+                                        transform: 'scale(1.05)', // adjust scale as needed
+                                        transition: 'all 0.3s', // smooth transition
+                                    }}
+                                >
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "36px" }} style={{ display: "flex", alignItems: "center" }}>VENATO</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>IOT/MOBILE</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>.../venato</Td>
+                                    <Td color={headingColor} fontSize={{ base: "25px", md: "20px" }}>2022</Td>
+                                </Tr>
                             </Tbody>
                         </Table>
                     </TableContainer>
